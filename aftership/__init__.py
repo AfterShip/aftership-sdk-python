@@ -1,6 +1,7 @@
 import requests
 import json
 import time
+import threading
 
 __author__ = 'Fedor Korshunov <mail@fedor.cc>'
 
@@ -16,20 +17,20 @@ class RequestPart(object):
     def __getattr__(self, chunk):
         return RequestPart('%s/%s' % (self._path, chunk), self._base)
 
-    def call(self, method, *args, **body):
-        self._base.call(method, self._path, *args, **body)
+    def request(self, method, *args, **body):
+        return self._base.call(method, self._path, *args, **body)
 
     def get(self, *args, **body):
-        return self.call('get', *args, **body)
+        return self.request('get', *args, **body)
 
     def post(self, *args, **body):
-        return self.call('post', *args, **body)
+        return self.request('post', *args, **body)
 
     def put(self, *args, **body):
-        return self.call('put', *args, **body)
+        return self.request('put', *args, **body)
 
     def delete(self, *args, **body):
-        return self.call('delete', *args, **body)
+        return self.request('delete', *args, **body)
 
 
 class API(RequestPart):
@@ -50,11 +51,6 @@ class API(RequestPart):
         RequestPart.__init__(self, base=self)
 
     def call(self, method, path, *args, **body):
-        if self._last_call:
-            delta = self._rate_limit - (time.clock() - self._last_call)
-            if delta > 0:
-                time.sleep(delta)
-
         args = ('/%s' % '/'.join(args)) if args else ''
         url = '%s%s%s' % (self._api_url, args, path)
 
@@ -66,7 +62,13 @@ class API(RequestPart):
             params = body
             body = {}
 
-        self._last_call = time.clock()
+        with threading.Lock():
+            if self._last_call:
+                delta = self._rate_limit - (time.clock() - self._last_call)
+                if delta > 0:
+                    time.sleep(delta)
+            self._last_call = time.clock()
+
         response = requests.request(method, url,
                                     headers=headers,
                                     params=params,
