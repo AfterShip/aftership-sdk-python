@@ -1,5 +1,6 @@
 import requests
 import json
+import time
 
 __author__ = 'Fedor Korshunov <mail@fedor.cc>'
 
@@ -32,13 +33,28 @@ class RequestPart(object):
 
 
 class API(RequestPart):
-    def __init__(self, key, base_url='https://api.aftership.com', ver='v3'):
-        self._headers = {'aftership-api-key': key}
+    def __init__(self, key=None,
+                 max_calls_per_sec=10.0,
+                 base_url='https://api.aftership.com',
+                 ver='v3',
+                 headers={}):
+
+        self._last_call = None
+        self._rate_limit = 1.0 / float(max_calls_per_sec)
+
+        self._headers = headers
+        if key:
+            self._headers['aftership-api-key'] = key
         self._api_url = '%s/%s' % (base_url, ver)
 
         RequestPart.__init__(self, base=self)
 
     def call(self, method, path, *args, **body):
+        if self._last_call:
+            delta = self._rate_limit - (time.clock() - self._last_call)
+            if delta > 0:
+                time.sleep(delta)
+
         args = ('/%s' % '/'.join(args)) if args else ''
         url = '%s%s%s' % (self._api_url, args, path)
 
@@ -50,6 +66,7 @@ class API(RequestPart):
             params = body
             body = {}
 
+        self._last_call = time.clock()
         response = requests.request(method, url,
                                     headers=headers,
                                     params=params,
