@@ -1,9 +1,14 @@
-import requests
 import json
 import time
 import threading
+import requests
 
 __author__ = 'Fedor Korshunov <mail@fedor.cc>'
+
+
+class AftershipRequestException(Exception):
+    def __getitem__(self, attribute):
+        return self.message[attribute]
 
 
 class RequestPart(object):
@@ -73,4 +78,9 @@ class API(RequestPart):
                                     headers=headers,
                                     params=params,
                                     data=json.dumps(body))
-        return json.loads(response.text)
+        ret = json.loads(response.text)
+
+        if not response.ok:
+            raise AftershipRequestException(ret)
+
+        return ret
