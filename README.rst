@@ -69,11 +69,11 @@ The module provides direct bindings to API calls: https://www.aftership.com/docs
 
 Each call consists of three parts:
 
-#. Positional arguments (goes after api.aftership.com/v3/, separated by slash "/")
-#. Named arguments (listed in Request —> Parameters section)
-#. HTTP Method (GET, POST, PUT or DELETE)
+#. **Positional arguments** (goes after api.aftership.com/v3/, separated by slash "/")
+#. **Named arguments** (listed in Request —> Parameters section)
+#. **HTTP Method** (GET, POST, PUT or DELETE)
 
-The following convention showed in pseudo-API call is used to construct a call:
+The following convention is used to construct a call:
 
 .. code-block:: python
 
@@ -133,7 +133,7 @@ Positional arguments passed as keys are useful if they are stored in variables a
 Named arguments
 ---------------
 
-Named arguments passed as keyword arguments.
+Named arguments passed as keyword arguments of HTTP Method call.
 Comma-separated values strings could be passed as regular lists, timestamp strings could be passed as regular datetime objects, e.g.:
 
 .. code-block:: python
@@ -156,13 +156,13 @@ aftership-python relies on Requests library and ones should expect `Requests exc
 APIv3RequestException
 ---------------------
 
-An exception is throwed on errors. The following methods are provided to get details of an error:
+An exception is throwed on errors. The following methods are provided to get error details:
 
 #. code()
 #. type()
 #. message()
 
-Each functions returns appropriate value from 'meta' field. See `Errors documentation <https://www.aftership.com/docs/api/3.0/errors>`_ for more details.
+Each functions returns appropriate value from 'meta' field. Check `errors documentation <https://www.aftership.com/docs/api/3.0/errors>`_ for more details.
 Code example:
 
 .. code-block:: python

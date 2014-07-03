@@ -118,6 +118,7 @@ class APIv3(API):
     - params['in']['brackets'].get()               : GET /params/in/brackets
     - path.get('arg1', 'arg2', arg_name='arg3')    : GET /path/arg1/arg2?arg_name=arg3
     Test checks conversion of input list type parameters to comma separated strings.
+    Test checks conversion of input timestamp strings to datetime variables.
     Test checks conversion of output timestamp strings to datetime variables.
 
 
@@ -129,6 +130,8 @@ class APIv3(API):
     <type 'datetime.datetime'>
     >>> api.trackings[slug][number].get()['tracking']['title']
     u'Title (changed)'
+    >>> api.trackings.get(created_at_min=datetime.datetime(2014, 6, 1), fields=['title', 'order_id'])['fields']
+    u'title,order_id'
     >>> api.trackings.delete(slug, number)['tracking']['slug']
     u'dpd-uk'
     """
