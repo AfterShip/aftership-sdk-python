@@ -86,13 +86,13 @@ The following code creates, modifies and deletes tracking:
 
 .. code-block:: pycon
 
-    >> import aftership
-    >> api = aftership.APIv3(API_KEY)
-    >> slug = 'dpd-uk'
-    >> number = '15502370264989N'
+    >>> import aftership
+    >>> api = aftership.APIv3(API_KEY)
+    >>> slug = 'dpd-uk'
+    >>> number = '15502370264989N'
 
     # create tracking
-    >> api.trackings.post(tracking=dict(slug=slug, tracking_number=number, title="Title"))
+    >>> api.trackings.post(tracking=dict(slug=slug, tracking_number=number, title="Title"))
     {u'tracking': { ... }}
 
     # get tracking by slug and number, return 'title' and 'created_at' field
