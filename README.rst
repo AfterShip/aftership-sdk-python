@@ -31,7 +31,7 @@ Usage
 Quick Start
 -----------
 
-The following code gets the list of supported couriers
+The following code gets list of supported couriers
 
 .. code-block:: python
 
@@ -110,13 +110,13 @@ The following code creates, modifies and deletes tracking:
     {u'tracking': { ... }}
 
 Positional arguments
-----------------------------
+--------------------
 
 Positional arguments passed in the following forms:
 
-#. APIv3 object attributes.
-#. APIv3 object keys.
-#. HTTP Method arguments.
+#. APIv3 object attributes
+#. APIv3 object keys
+#. HTTP Method arguments
 
 APIv3 object attributes used to represent constant parts of the endpoint, while HTTP Method arguments are used for variable parts, e.g.:
 
@@ -133,7 +133,7 @@ Positional arguments passed as keys are useful if they are stored in variables a
 Named arguments
 ---------------
 
-Named arguments passed as keyword arguments of HTTP Method call.
+Named arguments passed as keyword arguments of HTTP Method calls.
 Comma-separated values strings could be passed as regular lists, timestamp strings could be passed as regular datetime objects, e.g.:
 
 .. code-block:: python
