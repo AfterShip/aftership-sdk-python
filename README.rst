@@ -52,13 +52,15 @@ Import aftership module and obtain APIv3 object. Valid API key must be provided.
 APIv3 object
 ------------
 
-APIv3 object is used to maked API calls. Object cunstructor:
+APIv3 object is used to make API calls. Object cunstructor:
 
 .. code-block:: python
 
     class aftership.APIv3(key, max_calls_per_sec=10, datetime_convert=True)
 
-key is AfterShip API key. max_calls_per_sec represents maximum number of calls provided each second. datetime_convert provides timestamp strings conversion to datetime in API output.
+#. **key** is AfterShip API key
+#. **max_calls_per_sec** represents maximum number of calls provided for each second (10 is a limit for single client, but you might want to set less if you have multiple parallel API objects)
+#. **datetime_convert** provides timestamp strings conversion to datetime in API output
 
 Make API calls
 --------------
@@ -111,11 +113,13 @@ Positional arguments
 ----------------------------
 
 Positional arguments passed in the following forms:
+
 #. APIv3 object attributes.
 #. APIv3 object keys.
 #. HTTP Method arguments.
 
 APIv3 object attributes used to represent constant parts of the endpoint, while HTTP Method arguments are used for variable parts, e.g.:
+
 .. code-block:: python
 
     api.couriers.detect.get('15502370264989N')
@@ -130,7 +134,7 @@ Named arguments
 ---------------
 
 Named arguments passed as keyword arguments.
-Comma-separated list strings could be passed as regular lists, timestamp strings could be passed as regular datetime objects, e.g.:
+Comma-separated values strings could be passed as regular lists, timestamp strings could be passed as regular datetime objects, e.g.:
 
 .. code-block:: python
 
@@ -140,17 +144,32 @@ HTTP Method arguments
 ---------------------
 
 The following HTTP methods are supported:
+
 #. get()
 #. post()
 #. put()
 #. delete()
 
 Each method return either JSON of 'data' field or throws an aftership.APIv3RequestException.
+aftership-python relies on Requests library and ones should expect `Requests exceptions <http://docs.python-requests.org/en/latest/user/quickstart/#errors-and-exceptions>`_.
 
 APIv3RequestException
 ---------------------
 
 An exception is throwed on errors. The following methods are provided to get details of an error:
+
 #. code()
 #. type()
 #. message()
+
+Each functions returns appropriate value from 'meta' field. See `Errors documentation <https://www.aftership.com/docs/api/3.0/errors>`_ for more details.
+Code example:
+
+.. code-block:: python
+
+    try:
+        api = aftership.APIv3('FAKE_API_KEY')
+        api.couriers.get()
+    except aftership.APIv3RequestException as error:
+        # FAKE_API_KEY will result in InvalidCredentials (401) error
+        print 'Error:', error.code(), error.type(), error.message()
