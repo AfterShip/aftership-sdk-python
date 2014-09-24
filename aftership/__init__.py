@@ -14,7 +14,7 @@ __author__ = 'AfterShip <support@aftership.com>'
 # To run test cases go to the directory with current file and run:
 # $ python __init__.py
 TEST_SLUG = 'russian-post'
-TEST_TRACKING_NUMBER = 'EA333123991RU'
+TEST_TRACKING_NUMBER = '65600077151512'
 TEST_API_KEY = 'YOUR_API_KEY'
 
 
@@ -132,46 +132,22 @@ class API(RequestPart):
 
 
 class APIv3(API):
-    """
-    Test code goes below.
-
-    Test covers all accessing methods (POST, GET, PUT, DELETE).
-    Test covers all variants of building specific API calls (endpoints paths + body):
-    - dot.separated.constants.get()                : GET /dot/separated/constants
-    - params['in']['brackets'].get()               : GET /params/in/brackets
-    - path.get('arg1', 'arg2', arg_name='arg3')    : GET /path/arg1/arg2?arg_name=arg3
-    Test checks conversion of input list type parameters to comma separated strings.
-    Test checks conversion of input timestamp strings to datetime variables.
-    Test checks conversion of output timestamp strings to datetime variables.
-
-
-    >>> api_v3.trackings.post(tracking=dict(slug=slug, tracking_number=number, title="Title"))['tracking']['title']
-    u'Title'
-    >>> api_v3.trackings.get(slug, number, fields=['title', 'created_at'])['tracking']['title']
-    u'Title'
-    >>> type(api_v3.trackings.put(slug, number, tracking=dict(title="Title (changed)"))['tracking']['updated_at'])
-    <type 'datetime.datetime'>
-    >>> api_v3.trackings[slug][number].get()['tracking']['title']
-    u'Title (changed)'
-    >>> api_v3.trackings.get(created_at_min=datetime.datetime(2014, 6, 1), fields=['title', 'order_id'])['fields']
-    u'title,order_id'
-    >>> api_v3.trackings.delete(slug, number)['tracking']['slug']
-    u'russian-post'
-    """
     def __init__(self, key, max_calls_per_sec=10, datetime_convert=True, _prefix='v3'):
         self._datetime_fields = ['created_at',
                                  'created_at_min',
                                  'created_at_max',
                                  'updated_at',
                                  'expected_delivery',
-                                 'checkpoint_time']
+                                 'checkpoint_time',
+                                 'tracking_ship_date',
+                                 'expected_delivery']
         self._datetime_convert = datetime_convert
         API.__init__(self, key, max_calls_per_sec=max_calls_per_sec,
                      base_url='https://api.aftership.com',
                      ver=_prefix, headers={})
 
     def _is_datetime(self, key, value):
-        if type(value) is unicode_type and key in self._datetime_fields:
+        if type(value) is unicode_type and key in self._datetime_fields and len(value) > 0:
             return True
         return False
 
@@ -183,7 +159,10 @@ class APIv3(API):
 
                 # Convert ISO 8601 strings to datetime
                 if self._is_datetime(key, value):
-                    dct[key] = dateutil.parser.parse(value)
+                    try:
+                        dct[key] = dateutil.parser.parse(value)
+                    except:
+                        dct[key] = value
 
                 # Iterate thru dict
                 elif type(value) is dict:
@@ -228,18 +207,30 @@ class APIv4(APIv3):
     """
     Test code goes below.
 
-    >>> api_v4.couriers.all.get()['total']
-    214
+    Test covers all accessing methods (POST, GET, PUT, DELETE).
+    Test covers all variants of building specific API calls (endpoints paths + body):
+    - dot.separated.constants.get()                : GET /dot/separated/constants
+    - params['in']['brackets'].get()               : GET /params/in/brackets
+    - path.get('arg1', 'arg2', arg_name='arg3')    : GET /path/arg1/arg2?arg_name=arg3
+    Test checks conversion of input list type parameters to comma separated strings.
+    Test checks conversion of input timestamp strings to datetime variables.
+    Test checks conversion of output timestamp strings to datetime variables.
+
+
+    >>> api.trackings.post(tracking=dict(slug=slug, tracking_number=number, title="Title"))['tracking']['title']
+    u'Title'
+    >>> api.trackings.get(slug, number, fields=['title', 'created_at'])['tracking']['title']
+    u'Title'
+    >>> type(api.trackings.put(slug, number, tracking=dict(title="Title (changed)"))['tracking']['updated_at'])
+    <type 'datetime.datetime'>
+    >>> api.trackings[slug][number].get()['tracking']['title']
+    u'Title (changed)'
+    >>> api.trackings.get(created_at_min=datetime.datetime(2014, 6, 1), fields=['title', 'order_id'])['fields']
+    u'title,order_id'
+    >>> api.trackings.delete(slug, number)['tracking']['slug']
+    u'russian-post'
     """
     def __init__(self, key, max_calls_per_sec=10, datetime_convert=True, _prefix='v4'):
-        self._datetime_fields = ['created_at',
-                                 'created_at_min',
-                                 'created_at_max',
-                                 'updated_at',
-                                 'expected_delivery',
-                                 'checkpoint_time']
-        self._datetime_convert = datetime_convert
-
         APIv3.__init__(self, key,
                        max_calls_per_sec=max_calls_per_sec,
                        datetime_convert=datetime_convert,
@@ -255,8 +246,7 @@ class APIv4(APIv3):
 if __name__ == "__main__":
     import doctest
     print("Running smoke tests")
-    doctest.testmod(extraglobs={'api_v3': APIv3(TEST_API_KEY),
-                                'slug': TEST_SLUG,
+    doctest.testmod(extraglobs={'slug': TEST_SLUG,
                                 'number': TEST_TRACKING_NUMBER,
-                                'api_v4': APIv4(TEST_API_KEY)})
+                                'api': APIv4(TEST_API_KEY)})
     print("done!")
