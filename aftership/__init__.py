@@ -4,17 +4,26 @@ import threading
 import datetime
 import requests
 import dateutil.parser
+import sys
 
 
-__author__ = 'Fedor Korshunov <mail@fedor.cc>'
+__author__ = 'Fedor Korshunov <fedor@aftership.net>'
 
 
 # Values for test described in APIv3 class definition below.
 # To run test cases go to the directory with current file and run:
 # $ python __init__.py
-TEST_SLUG = 'dpd-uk'
-TEST_TRACKING_NUMBER = '15502370264989N'
+TEST_SLUG = 'russian-post'
+TEST_TRACKING_NUMBER = 'EA333123991RU'
 TEST_API_KEY = 'YOUR_API_KEY'
+
+
+py_ver = sys.version_info[0]
+
+if py_ver == 3:
+    unicode_type = str
+else:
+    unicode_type = unicode
 
 
 class APIRequestException(Exception):
@@ -31,6 +40,20 @@ class APIv3RequestException(APIRequestException):
 
     def message(self):
         return self['meta']['error_message']
+
+    def data(self):
+        return self['data']
+
+
+class APIv4RequestException(APIRequestException):
+    def code(self):
+        return self['meta']['code']
+
+    def type(self):
+        return self['meta']['type']
+
+    def message(self):
+        return self['meta']['message']
 
     def data(self):
         return self['data']
@@ -122,20 +145,20 @@ class APIv3(API):
     Test checks conversion of output timestamp strings to datetime variables.
 
 
-    >>> api.trackings.post(tracking=dict(slug=slug, tracking_number=number, title="Title"))['tracking']['title']
+    >>> api_v3.trackings.post(tracking=dict(slug=slug, tracking_number=number, title="Title"))['tracking']['title']
     u'Title'
-    >>> api.trackings.get(slug, number, fields=['title', 'created_at'])['tracking']['title']
+    >>> api_v3.trackings.get(slug, number, fields=['title', 'created_at'])['tracking']['title']
     u'Title'
-    >>> type(api.trackings.put(slug, number, tracking=dict(title="Title (changed)"))['tracking']['updated_at'])
+    >>> type(api_v3.trackings.put(slug, number, tracking=dict(title="Title (changed)"))['tracking']['updated_at'])
     <type 'datetime.datetime'>
-    >>> api.trackings[slug][number].get()['tracking']['title']
+    >>> api_v3.trackings[slug][number].get()['tracking']['title']
     u'Title (changed)'
-    >>> api.trackings.get(created_at_min=datetime.datetime(2014, 6, 1), fields=['title', 'order_id'])['fields']
+    >>> api_v3.trackings.get(created_at_min=datetime.datetime(2014, 6, 1), fields=['title', 'order_id'])['fields']
     u'title,order_id'
-    >>> api.trackings.delete(slug, number)['tracking']['slug']
-    u'dpd-uk'
+    >>> api_v3.trackings.delete(slug, number)['tracking']['slug']
+    u'russian-post'
     """
-    def __init__(self, key, max_calls_per_sec=10, datetime_convert=True):
+    def __init__(self, key, max_calls_per_sec=10, datetime_convert=True, _prefix='v3'):
         self._datetime_fields = ['created_at',
                                  'created_at_min',
                                  'created_at_max',
@@ -145,35 +168,41 @@ class APIv3(API):
         self._datetime_convert = datetime_convert
         API.__init__(self, key, max_calls_per_sec=max_calls_per_sec,
                      base_url='https://api.aftership.com',
-                     ver='v3', headers={})
+                     ver=_prefix, headers={})
 
     def _is_datetime(self, key, value):
-        if type(value) is unicode and key in self._datetime_fields:
+        if type(value) is unicode_type and key in self._datetime_fields:
             return True
         return False
 
     def _convert_datetime_dict(self, dct):
-        for key, value in dct.iteritems():
+        if type(dct) is dict:
+            # for key, value in dct.iteritems():
+            for key in list(dct.keys()):
+                value = dct[key]
 
-            # Convert ISO 8601 strings to datetime
-            if self._is_datetime(key, value):
-                dct[key] = dateutil.parser.parse(value)
+                # Convert ISO 8601 strings to datetime
+                if self._is_datetime(key, value):
+                    dct[key] = dateutil.parser.parse(value)
 
-            # Iterate thru dict
-            elif type(value) is dict:
-                dct[key] = self._convert_datetime_dict(value)
+                # Iterate thru dict
+                elif type(value) is dict:
+                    dct[key] = self._convert_datetime_dict(value)
 
-            # Iterate thru list
-            elif type(value) is list:
-                dct[key] = []
-                for item in value:
-                    dct[key].append(self._convert_datetime_dict(item))
+                # Iterate thru list
+                elif type(value) is list:
+                    dct[key] = []
+                    for item in value:
+                        dct[key].append(self._convert_datetime_dict(item))
 
         return dct
 
     def call(self, *args, **body):
         try:
-            for key, value in body.iteritems():
+            # for key, value in body.iteritems():
+            for key in list(body.keys()):
+                value = body[key]
+
                 # Convert datetime to ISO 8601 string
                 if type(value) is datetime.datetime:
                     value = value.replace(microsecond=0)
@@ -181,9 +210,10 @@ class APIv3(API):
 
                 # Convert array of values to comma-separated string
                 elif type(value) is list:
-                    body[key] = u','.join(value)
+                    body[key] = ','.join(value)
 
             response = API.call(self, *args, **body)['data']
+            # pprint.pprint(response)
 
             # Convert ISO 8601 strings to datetime
             if self._datetime_convert:
@@ -194,10 +224,39 @@ class APIv3(API):
             raise APIv3RequestException(*error.args)
 
 
+class APIv4(APIv3):
+    """
+    Test code goes below.
+
+    >>> api_v4.couriers.all.get()['total']
+    214
+    """
+    def __init__(self, key, max_calls_per_sec=10, datetime_convert=True, _prefix='v4'):
+        self._datetime_fields = ['created_at',
+                                 'created_at_min',
+                                 'created_at_max',
+                                 'updated_at',
+                                 'expected_delivery',
+                                 'checkpoint_time']
+        self._datetime_convert = datetime_convert
+
+        APIv3.__init__(self, key,
+                       max_calls_per_sec=max_calls_per_sec,
+                       datetime_convert=datetime_convert,
+                       _prefix=_prefix)
+
+    def call(self, *args, **body):
+        try:
+            return APIv3.call(self, *args, **body)
+        except APIv3RequestException as error:
+            raise APIv4RequestException(*error.args)
+
+
 if __name__ == "__main__":
     import doctest
-    print 'Running tests...'
-    doctest.testmod(extraglobs={'api': APIv3(TEST_API_KEY),
+    print("Running smoke tests")
+    doctest.testmod(extraglobs={'api_v3': APIv3(TEST_API_KEY),
                                 'slug': TEST_SLUG,
-                                'number': TEST_TRACKING_NUMBER})
-    print '\tdone!'
+                                'number': TEST_TRACKING_NUMBER,
+                                'api_v4': APIv4(TEST_API_KEY)})
+    print("done!")

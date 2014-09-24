@@ -23,8 +23,8 @@ setup(
     url='https://github.com/AfterShip/aftership-python',
 
     # Author details
-    author='AfterShip',
-    author_email='mail@fedor.cc',
+    author='Fedor Korshunov',
+    author_email='fedor@aftership.net',
 
     # Choose your license
     license='MIT',
@@ -57,7 +57,7 @@ setup(
     ],
 
     # What does your project relate to?
-    keywords='aftership api binding',
+    keywords='aftership api binding tracking post mail airmail logistics',
 
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
