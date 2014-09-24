@@ -157,7 +157,7 @@ The following HTTP methods are supported:
 Each method return either JSON of 'data' field or throws an aftership.APIv4RequestException.
 aftership-python relies on Requests library and ones should expect `Requests exceptions <http://docs.python-requests.org/en/latest/user/quickstart/#errors-and-exceptions>`_.
 
-APIv3RequestException
+APIv4RequestException
 ---------------------
 
 An exception is throwed on errors. The following methods are provided to get error details:
