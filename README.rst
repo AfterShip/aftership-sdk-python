@@ -142,7 +142,9 @@ Comma-separated values strings could be passed as [lists], timestamp strings cou
 
 .. code-block:: python
 
-    api.trackings.get(created_at_min=datetime(2014, 9, 1), fields=['title', 'order_id'])
+    import datetime
+    ...
+    api.trackings.get(created_at_min=datetime.datetime(2014, 9, 1), fields=['title', 'order_id'])
 
 HTTP Method arguments
 ---------------------
