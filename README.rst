@@ -91,7 +91,7 @@ The following code creates, modifies and deletes tracking:
     >>> import aftership
     >>> api = aftership.APIv4(API_KEY)
     >>> slug = 'russian-post'
-    >>> number = 'EA333123991RU'
+    >>> number = '65600077151512'
 
     # create tracking
     # https://www.aftership.com/docs/api/4/trackings/post-trackings
@@ -126,13 +126,13 @@ APIv4 object attributes used to represent constant parts of the endpoint, while 
 
 .. code-block:: python
 
-    api.trackings.get('russian-post', 'EA333123991RU')
+    api.trackings.get('russian-post', '65600077151512')
 
 Positional arguments passed as keys are useful if they are stored in variables and followed by constant value, e.g.:
 
 .. code-block:: python
 
-    api.trackings['russian-post']['EA333123991RU'].retrack.post()
+    api.trackings['russian-post']['65600077151512'].retrack.post()
 
 Named arguments
 ---------------
