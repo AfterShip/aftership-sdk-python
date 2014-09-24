@@ -22,6 +22,9 @@ setup(
     # The project's main homepage.
     url='https://github.com/AfterShip/aftership-python',
 
+    # Download path
+    download_url = 'https://github.com/AfterShip/aftership-python/tarball/0.1',
+
     # Author details
     author='AfterShip',
     author_email='support@aftership.com',
