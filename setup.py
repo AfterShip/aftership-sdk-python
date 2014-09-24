@@ -16,15 +16,15 @@ setup(
     # http://packaging.python.org/en/latest/tutorial.html#version
     version='0.1',
 
-    description='AfterShip API binding',
+    description='Python SDK of AfterShip API',
     long_description=long_description,
 
     # The project's main homepage.
     url='https://github.com/AfterShip/aftership-python',
 
     # Author details
-    author='Fedor Korshunov',
-    author_email='fedor@aftership.net',
+    author='AfterShip',
+    author_email='support@aftership.com',
 
     # Choose your license
     license='MIT',
@@ -35,7 +35,7 @@ setup(
         #   3 - Alpha
         #   4 - Beta
         #   5 - Production/Stable
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 3 - Alpha',
 
         # Indicate who your project is intended for
         'Intended Audience :: Developers',
@@ -49,15 +49,14 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
-        # TODO: not yet Py3 ready
-        # 'Programming Language :: Python :: 3',
-        # 'Programming Language :: Python :: 3.2',
-        # 'Programming Language :: Python :: 3.3',
-        # 'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.2',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
     ],
 
     # What does your project relate to?
-    keywords='aftership api binding tracking post mail airmail logistics',
+    keywords='aftership api binding tracking track post mail airmail logistics shipping',
 
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().

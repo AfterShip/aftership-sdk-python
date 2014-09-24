@@ -7,7 +7,7 @@ import dateutil.parser
 import sys
 
 
-__author__ = 'Fedor Korshunov <fedor@aftership.net>'
+__author__ = 'AfterShip <support@aftership.com>'
 
 
 # Values for test described in APIv3 class definition below.
