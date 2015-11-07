@@ -5,9 +5,13 @@ import datetime
 import requests
 import dateutil.parser
 import sys
+import logging
 
 
 __author__ = 'AfterShip <support@aftership.com>'
+
+
+logger = logging.getLogger(__name__)
 
 
 # Values for test described in APIv3 class definition below.
@@ -113,6 +117,8 @@ class API(RequestPart):
         elif body:
             params = body
             body = None
+
+        logger.debug('args: %s; url: %s; headers: %s', args, url, headers)
 
         with threading.Lock():
             if self._last_call:
