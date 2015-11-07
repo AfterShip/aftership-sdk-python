@@ -11,6 +11,7 @@ from requests.exceptions import HTTPError
 
 
 __author__ = 'AfterShip <support@aftership.com>'
+__version__ = '0.1'
 
 
 logger = logging.getLogger(__name__)
@@ -102,6 +103,10 @@ class RequestPart(object):
 
 
 class API(RequestPart):
+    DEFAULT_HEADERS = {
+        'User-Agent': 'aftership-python/{}'.format(__version__),
+    }
+
     def __init__(self, key=None,
                  max_calls_per_sec=10,
                  base_url='https://api.aftership.com',
@@ -109,7 +114,8 @@ class API(RequestPart):
         self._last_call = None
         self._rate_limit = 1.0 / float(max_calls_per_sec)
 
-        self._headers = headers
+        self._headers = self.DEFAULT_HEADERS
+        self._headers.update(headers)
         if key:
             self._headers['aftership-api-key'] = key
         self._api_url = '%s/%s' % (base_url, ver)
