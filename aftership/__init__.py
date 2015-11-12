@@ -1,3 +1,4 @@
+from collections import defaultdict
 import json
 import time
 import threading
@@ -5,9 +6,15 @@ import datetime
 import requests
 import dateutil.parser
 import sys
+import logging
+from requests.exceptions import HTTPError
 
 
 __author__ = 'AfterShip <support@aftership.com>'
+__version__ = '0.1'
+
+
+logger = logging.getLogger(__name__)
 
 
 # Values for test described in APIv3 class definition below.
@@ -27,8 +34,17 @@ else:
 
 
 class APIRequestException(Exception):
+    def __init__(self, *args, **kwargs):
+        super(APIRequestException, self).__init__(*args, **kwargs)
+        if isinstance(self.args[0], dict):
+            self._data = self.args[0]
+        else:
+            self._message = self.args[0]
+            self._data = defaultdict(lambda : defaultdict(unicode_type))
+            self._data['data'] = ''
+
     def __getitem__(self, attribute):
-        return self.args[0][attribute]
+        return self._data[attribute]
 
 
 class APIv3RequestException(APIRequestException):
@@ -39,7 +55,7 @@ class APIv3RequestException(APIRequestException):
         return self['meta']['error_type']
 
     def message(self):
-        return self['meta']['error_message']
+        return self['meta']['error_message'] or self._message
 
     def data(self):
         return self['data']
@@ -53,7 +69,7 @@ class APIv4RequestException(APIRequestException):
         return self['meta']['type']
 
     def message(self):
-        return self['meta']['message']
+        return self['meta']['message'] or self._message
 
     def data(self):
         return self['data']
@@ -87,6 +103,10 @@ class RequestPart(object):
 
 
 class API(RequestPart):
+    DEFAULT_HEADERS = {
+        'User-Agent': 'aftership-python/{}'.format(__version__),
+    }
+
     def __init__(self, key=None,
                  max_calls_per_sec=10,
                  base_url='https://api.aftership.com',
@@ -94,7 +114,8 @@ class API(RequestPart):
         self._last_call = None
         self._rate_limit = 1.0 / float(max_calls_per_sec)
 
-        self._headers = headers
+        self._headers = self.DEFAULT_HEADERS
+        self._headers.update(headers)
         if key:
             self._headers['aftership-api-key'] = key
         self._api_url = '%s/%s' % (base_url, ver)
@@ -114,6 +135,8 @@ class API(RequestPart):
             params = body
             body = None
 
+        logger.debug('args: %s; url: %s; headers: %s', args, url, headers)
+
         with threading.Lock():
             if self._last_call:
                 delta = self._rate_limit - (time.clock() - self._last_call)
@@ -123,10 +146,12 @@ class API(RequestPart):
 
         response = requests.request(method, url, headers=headers,
                                     params=params, data=body)
-        ret = json.loads(response.text)
-
-        if not response.ok:
-            raise APIRequestException(ret)
+        try:
+            response.raise_for_status()
+            ret = response.json()
+        except (HTTPError, ValueError) as error:
+            logger.exception('Error in AfterShip response')
+            raise APIRequestException(*error.args)
 
         return ret
 
