@@ -11,7 +11,7 @@ from requests.exceptions import HTTPError
 
 
 __author__ = 'AfterShip <support@aftership.com>'
-__version__ = '0.1'
+__version__ = '0.2'
 
 
 logger = logging.getLogger(__name__)
@@ -34,28 +34,21 @@ else:
 
 
 class APIRequestException(Exception):
-    def __init__(self, *args, **kwargs):
-        super(APIRequestException, self).__init__(*args, **kwargs)
-        if isinstance(self.args[0], dict):
-            self._data = self.args[0]
-        else:
-            self._message = self.args[0]
-            self._data = defaultdict(lambda : defaultdict(unicode_type))
-            self._data['data'] = ''
-
     def __getitem__(self, attribute):
-        return self._data[attribute]
+        if self.args and isinstance(self.args[0], dict):
+            return self.args[0].get(attribute, {})
+        return {}
 
 
 class APIv3RequestException(APIRequestException):
     def code(self):
-        return self['meta']['code']
+        return self['meta'].get('code') or 500
 
     def type(self):
-        return self['meta']['error_type']
+        return self['meta'].get('error_type') or 'InternalError'
 
     def message(self):
-        return self['meta']['error_message'] or self._message
+        return self['meta'].get('error_message') or str(self)
 
     def data(self):
         return self['data']
@@ -63,13 +56,13 @@ class APIv3RequestException(APIRequestException):
 
 class APIv4RequestException(APIRequestException):
     def code(self):
-        return self['meta']['code']
+        return self['meta'].get('code') or 500
 
     def type(self):
-        return self['meta']['type']
+        return self['meta'].get('type') or 'InternalError'
 
     def message(self):
-        return self['meta']['message'] or self._message
+        return self['meta'].get('message') or str(self)
 
     def data(self):
         return self['data']
@@ -147,11 +140,13 @@ class API(RequestPart):
         response = requests.request(method, url, headers=headers,
                                     params=params, data=body)
         try:
-            response.raise_for_status()
             ret = response.json()
-        except (HTTPError, ValueError) as error:
+        except ValueError as error:
             logger.exception('Error in AfterShip response')
-            raise APIRequestException(*error.args)
+            raise APIRequestException('Server response parsing failed. ValueError: ' + str(error))
+
+        if not response.ok:
+            raise APIRequestException(ret)
 
         return ret
 
@@ -274,4 +269,16 @@ if __name__ == "__main__":
     doctest.testmod(extraglobs={'slug': TEST_SLUG,
                                 'number': TEST_TRACKING_NUMBER,
                                 'api': APIv4(TEST_API_KEY)})
+    
+    # try:
+    #     slug = TEST_SLUG
+    #     number = TEST_TRACKING_NUMBER
+    #     api = APIv4(TEST_API_KEY)
+    #     print api.trackings.post(tracking=dict(slug=slug, tracking_number=number, title="Title"))
+    #     print api.trackings.get(slug, number, fields=['title', 'created_at'])
+    #     print api.trackings.delete(slug, number)
+    # except APIv4RequestException as error:
+    #     # FAKE_API_KEY will result in Unauthorized (401) error
+    #     print 'Error:', error.code(), '|', error.type(), '|', error.message(), '|', error.data()
+
     print("done!")
