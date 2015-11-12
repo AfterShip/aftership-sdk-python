@@ -1,4 +1,3 @@
-from collections import defaultdict
 import json
 import time
 import threading
@@ -7,7 +6,6 @@ import requests
 import dateutil.parser
 import sys
 import logging
-from requests.exceptions import HTTPError
 
 
 __author__ = 'AfterShip <support@aftership.com>'
