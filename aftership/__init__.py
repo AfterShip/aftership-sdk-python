@@ -23,13 +23,17 @@ TEST_TRACKING_NUMBER = '65600077151512'
 TEST_API_KEY = 'YOUR_API_KEY'
 
 
-py_ver = sys.version_info[0]
+py_ver = sys.version_info
 
-if py_ver == 3:
+if py_ver >= (3,):
     unicode_type = str
 else:
     unicode_type = unicode
 
+if py_ver >= (3,3):
+    process_time = time.process_time
+else:
+    process_time = time.clock
 
 class APIRequestException(Exception):
     def __getitem__(self, attribute):
@@ -130,10 +134,10 @@ class API(RequestPart):
 
         with threading.Lock():
             if self._last_call:
-                delta = self._rate_limit - (time.clock() - self._last_call)
+                delta = self._rate_limit - (process_time() - self._last_call)
                 if delta > 0:
                     time.sleep(delta)
-            self._last_call = time.clock()
+            self._last_call = process_time()
 
         response = requests.request(method, url, headers=headers,
                                     params=params, data=body)
@@ -267,7 +271,7 @@ if __name__ == "__main__":
     doctest.testmod(extraglobs={'slug': TEST_SLUG,
                                 'number': TEST_TRACKING_NUMBER,
                                 'api': APIv4(TEST_API_KEY)})
-    
+
     # try:
     #     slug = TEST_SLUG
     #     number = TEST_TRACKING_NUMBER
