@@ -249,6 +249,22 @@ class APIv4(APIv3):
     u'russian-post'
     """
     def __init__(self, key, max_calls_per_sec=10, datetime_convert=True, _prefix='v4'):
+        """
+        :type key: str
+        :param key:
+
+        :type max_calls_per_sec: int
+        :param max_calls_per_sec:
+
+        :type datetime_convert: bool
+        :param datetime_convert:
+
+        :type _prefix: str
+        :param _prefix:
+
+        :rtype: APIv4
+        :return:
+        """
         APIv3.__init__(self, key,
                        max_calls_per_sec=max_calls_per_sec,
                        datetime_convert=datetime_convert,
