@@ -1,6 +1,7 @@
-from setuptools import setup
 from codecs import open  # To use a consistent encoding
 from os import path
+
+from setuptools import setup
 
 here = path.abspath(path.dirname(__file__))
 
@@ -8,13 +9,16 @@ here = path.abspath(path.dirname(__file__))
 with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
+with open(path.join(here, 'VERSION'), encoding='utf-8') as f:
+    version = f.read()
+
 setup(
     name='aftership',
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # http://packaging.python.org/en/latest/tutorial.html#version
-    version='0.2',
+    version=version,
 
     description='Python SDK of AfterShip API',
     long_description=long_description,
@@ -23,7 +27,7 @@ setup(
     url='https://github.com/AfterShip/aftership-python',
 
     # Download path
-    download_url = 'https://github.com/AfterShip/aftership-python/tarball/0.2',
+    download_url='https://github.com/AfterShip/aftership-python/tarball/{}'.format(version),
 
     # Author details
     author='AfterShip',
@@ -49,13 +53,13 @@ setup(
 
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.2',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: Implementation :: CPython',
+        'Programming Language :: Python :: Implementation :: PyPy'
     ],
 
     # What does your project relate to?
@@ -64,5 +68,5 @@ setup(
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
     packages=['aftership'],
-    install_requires=['requests', 'python-dateutil'],
+    install_requires=[],
 )

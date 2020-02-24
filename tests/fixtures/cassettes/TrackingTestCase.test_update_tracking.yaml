@@ -1,0 +1,78 @@
+interactions:
+- request:
+    body: '{"tracking": {"title": "new title"}}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '36'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.23.0
+      aftership-api-key:
+      - YOUR_API_KEY_IS_HERE
+    method: PUT
+    uri: https://api.aftership.com/v4/trackings/k5lh7dy7vvqeck71p5loe011
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA41Uy27bMBD8lYLXxgElw1ajUz+hh9yCgqDJtcSKIhk+nLqB/71Ly5Ity0B7E2eW
+        3J3dWX2SHiIn9ScRVgKpS0pPT0TyAYuei06ZJn8rSWrSbXRbyWN1OLyD6KrCbbQFWhTkiQgPPIJk
+        PGJcSUu6ouWq3LzSl3pd1ZvtV0prSjEwOfkgcPtK1/WmwpApUPMQ2X9Hj7Uyk/odeIwuXsot/VZU
+        SAadUAQRrTJ85WyIiHER1QElR58AT0Z6mzW+/UQtKUTbs70CLQOpTdJ6BMEzw3sYQQkaH/FHFtUt
+        GCImisoaJmwyEXkV7Hp6ySav8KF/xUHPlcb8b+RX9/yn5ab5zvcRfGiVexa2J1gq/HYgcoPGSsbL
+        yoZBjLFxqsx6iXmzzPmZOR7bK6ga9biinLkHEzFedLyBIWjJKtElx/LkFtzUsYdsPLol+AGqaZdZ
+        Bpglo66cagz2Yjd1IfQBLn0I2HWBjxPuVPYLz474AUZmgyOddjOIUVpMMOshBNQ7uxFV1Bkx8PFl
+        +L64ECu49IVeXNwrDWxyaEjOWY9DG6vUONp0fn44o6T3hBdsBwYTSHAeRF6DvGctbp6zysRRV9oF
+        4dUOs96qvaKTjRD2EJM3+DILqCOvyZ7rAKMTnLe9Cjdumk3pavabKV1mra04G/kOvjXfpJ+Lc3um
+        Tb2j5/5b0A+2ZhHTwRLLa881G/5zd1z21EzqlYkTejqd/gKxUyAlLwUAAA==
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,aftership-api-key
+      Access-Control-Allow-Methods:
+      - GET,OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, proxy-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 26 Feb 2020 03:57:00 GMT
+      Expires:
+      - '0'
+      Pragma:
+      - no-cache
+      Server:
+      - nginx
+      Surrogate-Control:
+      - no-store
+      Vary:
+      - Accept-Encoding
+      X-RateLimit-Limit:
+      - '10000'
+      X-RateLimit-Remaining:
+      - '9990'
+      X-RateLimit-Reset:
+      - '1582689439'
+      X-Response-Time:
+      - 238.152ms
+      p3p:
+      - 'CP="AfterShip does not have a P3P policy. Learn why here: https://www.aftership.com/p3p"'
+      transfer-encoding:
+      - chunked
+    status:
+      code: 200
+      message: OK
+version: 1

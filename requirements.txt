@@ -1,0 +1,10 @@
+wheel
+setuptools
+
+requests
+
+# For testing
+flake8
+pytest
+pytest-cov
+pytest-vcr
