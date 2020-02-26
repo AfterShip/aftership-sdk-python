@@ -12,6 +12,10 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 with open(path.join(here, 'VERSION'), encoding='utf-8') as f:
     version = f.read()
 
+with open(path.join(here, 'requirements.txt'), encoding='utf-8') as f:
+    install_requires = f.read().split('\n')
+
+
 setup(
     name='aftership',
 
@@ -68,5 +72,5 @@ setup(
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
     packages=['aftership'],
-    install_requires=[],
+    install_requires=install_requires,
 )
