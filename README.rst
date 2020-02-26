@@ -51,7 +51,7 @@ source root directory, then run:
 Usage
 -----
 
-You need a valid API key to use this SDK. If you don't have one, please visit <https://www.aftership.com/apps/api>.
+You need a valid API key to use this SDK. If you don't have one, please visit https://www.aftership.com/apps/api.
 
 Quick Start
 ===========
@@ -64,7 +64,7 @@ The following code gets list of supported couriers
     aftership.api_key = 'YOUR_API_KEY_FROM_AFTERSHIP'
     couriers = aftership.courier.list_couriers()
 
- You can also set API key via setting `AFTERSHIP_API_KEY` environment varaible.
+You can also set API key via setting :code:`AFTERSHIP_API_KEY` environment varaible.
 
 .. code-block:: bash
 
@@ -83,11 +83,11 @@ Exceptions
 ==========
 
 
-Exceptions are mapped from <https://docs.aftership.com/api/4/errors>,
+Exceptions are mapped from https://docs.aftership.com/api/4/errors,
 and this table is the exception attributes mapping.
 
 +------------------+----------------------+
-| API error        | Python SDK exception |
+| API error        | AfterShipError       |
 +==================+======================+
 | http status code | :code:`http_status`  |
 +------------------+----------------------+
@@ -106,4 +106,4 @@ Most of SDK functions only accept keyword arguments.
 Examples
 ========
 
-Goto </examples> see more examples.
+Goto `examples <examples>`_ to see more examples.
