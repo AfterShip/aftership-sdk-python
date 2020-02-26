@@ -1,13 +1,14 @@
 .PHONY: docs clean
 
 install:
-	pip install -r requirements.txt
+	pip install --upgrade .
+	pip install -r requirements-dev.txt
 
 test:
-	py.test
+	cd tests && py.test
 
 record:
-	py.test --vcr-record=new_episodes
+	cd tests && py.test --vcr-record=new_episodes
 
 flake8:
 	flake8
@@ -18,6 +19,7 @@ docs:
 
 build:
 	python setup.py sdist --formats=gztar,zip
+	python setup.py sdist bdist_wheel
 
 clean:
 	-rm -r docs/_build

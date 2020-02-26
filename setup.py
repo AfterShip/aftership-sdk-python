@@ -1,28 +1,29 @@
+import os
 from codecs import open  # To use a consistent encoding
-from os import path
 
 from setuptools import setup
 
-here = path.abspath(path.dirname(__file__))
+here = os.path.abspath(os.path.dirname(__file__))
 
 # Get the long description from the relevant file
-with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
+with open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
-with open(path.join(here, 'VERSION'), encoding='utf-8') as f:
-    version = f.read()
-
-with open(path.join(here, 'requirements.txt'), encoding='utf-8') as f:
+with open(os.path.join(here, 'requirements.txt'), encoding='utf-8') as f:
     install_requires = f.read().split('\n')
 
+with open(os.path.join(here, 'VERSION'), encoding='utf-8') as f:
+    __version__ = f.read().strip()
 
 setup(
     name='aftership',
 
+    python_requires='>3.5.0',
+
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # http://packaging.python.org/en/latest/tutorial.html#version
-    version=version,
+    version=__version__,
 
     description='Python SDK of AfterShip API',
     long_description=long_description,
@@ -31,7 +32,7 @@ setup(
     url='https://github.com/AfterShip/aftership-python',
 
     # Download path
-    download_url='https://github.com/AfterShip/aftership-python/tarball/{}'.format(version),
+    download_url='https://github.com/AfterShip/aftership-python/tarball/{}'.format(__version__),
 
     # Author details
     author='AfterShip',
