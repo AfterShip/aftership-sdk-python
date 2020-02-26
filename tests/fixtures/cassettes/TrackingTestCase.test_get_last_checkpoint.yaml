@@ -1,0 +1,62 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.23.0
+      aftership-api-key:
+      - YOUR_API_KEY_IS_HERE
+    method: GET
+    uri: https://api.aftership.com/v4/last_checkpoint/k5lh7dy7vvqeck71p5loe011
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA1WPwW7DIBBE/2XPrgSpUrf+it6rChFANjIGF5ZIbuR/zxJcO73B25nZ2RtMBiV0
+        N1BBG+hOjK0NaFmZ1dDBeHZDq5f2ev0xamz5fHbBMM6hAYxSjdb3wufpYiKJ+cfpjb3zlobJ5Z6I
+        GqyXL3NIWAyyoE/jNbmKJl/+IcFYya1YTCYl2VOrJ4caqMQcrMdSuu7w2bkGVDQSjRaSJhvZtQLt
+        RDkbtrjs7xAidSFjgu7rm1JC9hgXYVN4PUSVeXmE7N1qZkKK+NM/Ttr4duDz77ir0l87V/m6rnfW
+        feLVkAEAAA==
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, proxy-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '235'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 26 Feb 2020 03:56:52 GMT
+      Expires:
+      - '0'
+      Pragma:
+      - no-cache
+      Server:
+      - nginx
+      Surrogate-Control:
+      - no-store
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      X-RateLimit-Limit:
+      - '10000'
+      X-RateLimit-Remaining:
+      - '9994'
+      X-RateLimit-Reset:
+      - '1582689438'
+      X-Response-Time:
+      - 144.109ms
+      p3p:
+      - 'CP="AfterShip does not have a P3P policy. Learn why here: https://www.aftership.com/p3p"'
+    status:
+      code: 200
+      message: OK
+version: 1

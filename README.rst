@@ -1,181 +1,109 @@
-About aftership-python
-======================
+====================
+aftership-sdk-python
+====================
 
-aftership-python is Python SDK (module) for `AfterShip API <https://www.aftership.com/docs/api/4>`_.
-Module provides clean and elegant way to access API endpoints.
+aftership-sdk-python is Python SDK (module) for `AfterShip API <https://www.aftership.com/docs/api/4>`_.
+Module provides clean way to access API endpoints.
+
+IMPORTANT NOTE
+--------------
+
+Current version of aftership-sdk-python `>=0.3` not **compatible** with
+previous version of sdk `<=0.2`.
+
+And the version is now a **pre-release** version, which means our SDK **may**
+change without any **compatibility**.
+
+Supported Python Versions
+=========================
+
+- 3.5
+- 3.6
+- 3.7
+- 3.8
+- pypy3
 
 Installation
-============
+------------
 
 Via pip
--------
+=======
 
-Run the following:
+Use Virtual Environment
+=======================
+We recommend using a `virtualenv <https://docs.python.org/3/library/venv.html>`_ or `poem <https://python-poetry.org/>`_
+to use this SDK.
 
 .. code-block:: bash
 
     $ pip install aftership
 
 Via source code
----------------
+===============
 
-Download the code archive, unzip it, create/activate `virtualenv <http://virtualenv.readthedocs.org/en/latest/virtualenv.html>`_, go to the source root directory, then run:
+Download the code archive, without unzip it, go to the
+source root directory, then run:
 
 .. code-block:: bash
 
-    $ python setup.py install
+    $ pip install aftership-sdk-python.zip
 
 Usage
-=====
+-----
+
+You need a valid API key to use this SDK. If you don't have one, please visit https://www.aftership.com/apps/api.
 
 Quick Start
------------
+===========
 
 The following code gets list of supported couriers
 
 .. code-block:: python
 
     import aftership
-    api = aftership.APIv4('AFTERSHIP_API_KEY')
-    couriers = api.couriers.all.get()
+    aftership.api_key = 'YOUR_API_KEY_FROM_AFTERSHIP'
+    couriers = aftership.courier.list_couriers()
 
-Get API object
---------------
+You can also set API key via setting :code:`AFTERSHIP_API_KEY` environment varaible.
 
-Import aftership module and obtain APIv4 object. Valid API key must be provided.
+.. code-block:: bash
+
+    export AFTERSHIP_API_KEY=THIS_IS_MY_API_KEY
 
 .. code-block:: python
 
     import aftership
-    api = aftership.APIv4('AFTERSHIP_API_KEY')
+    tracking = aftership.get_tracking(tracking_id='your_tracking_id')
 
-APIv4 object
-------------
+The functions of the SDK will return `data` field value if the API endpoints
+return response with HTTP status :code:`2XX`, otherwise will throw an
+exception.
 
-APIv4 object is used to make API calls. Object constructor:
+Exceptions
+==========
 
-.. code-block:: python
 
-    class aftership.APIv4(key, max_calls_per_sec=10, datetime_convert=True)
+Exceptions are mapped from https://docs.aftership.com/api/4/errors,
+and this table is the exception attributes mapping.
 
-#. **key** is AfterShip API key
-#. **max_calls_per_sec** represents maximum number of calls provided for each second (10 is a limit for single client, but you might want to set less if you have multiple parallel API objects)
-#. **datetime_convert** provides timestamp strings conversion to datetime in API output
++------------------+----------------------+
+| API error        | AfterShipError       |
++==================+======================+
+| http status code | :code:`http_status`  |
++------------------+----------------------+
+| :code:`meta.code`| :code:`code`         |
++------------------+----------------------+
+| :code:`meta.type`| :code:`message`      |
++------------------+----------------------+
 
-Make API calls
---------------
 
-The module provides direct bindings to API calls: https://www.aftership.com/docs/api/4
+Keyword arguments
+=================
 
-Each call consists of three parts:
+Most of SDK functions only accept keyword arguments.
 
-#. **Positional arguments** (goes after api.aftership.com/v4/, separated by slash "/")
-#. **Named arguments** (listed in Request —> Parameters section)
-#. **HTTP Method** (GET, POST, PUT or DELETE)
 
-The following convention is used to construct a call:
+Examples
+========
 
-.. code-block:: python
-
-    <APIv4 object>.positional.arguments.<HTTP method>(*more_positional_arguments, **named_arguments)
-
-The code above makes a call to /positional/arguments/... endpoint with named arguments passed in request body as JSON or HTTP query (depending on HTTP method).
-
-API calls examples
-------------------
-
-The following code creates, modifies and deletes tracking:
-
-.. code-block:: pycon
-
-    >>> import aftership
-    >>> api = aftership.APIv4(API_KEY)
-    >>> slug = 'russian-post'
-    >>> number = '65600077151512'
-
-    # create tracking
-    # https://www.aftership.com/docs/api/4/trackings/post-trackings
-    >>> api.trackings.post(tracking=dict(slug=slug, tracking_number=number, title="Title"))
-    {u'tracking': { ... }}
-
-    # get tracking by slug and number, return 'title' and 'created_at' field
-    # https://www.aftership.com/docs/api/4/trackings/get-trackings-slug-tracking_number
-    >>> api.trackings.get(slug, number, fields=['title', 'created_at'])
-    {u'tracking': { ... }}
-
-    # change tracking title
-    # https://www.aftership.com/docs/api/4/trackings/put-trackings-slug-tracking_number
-    >>> api.trackings.put(slug, number, tracking=dict(title="Title (changed)"))
-    {u'tracking': { ... }}
-
-    # delete tracking
-    # https://www.aftership.com/docs/api/4/trackings/delete-trackings
-    >>> api.trackings.delete(slug, number)
-    {u'tracking': { ... }}
-
-Positional arguments
---------------------
-
-Positional arguments passed in the following forms:
-
-#. APIv4 object attributes
-#. APIv4 object keys
-#. HTTP Method arguments
-
-APIv4 object attributes used to represent constant parts of the endpoint, while HTTP Method arguments are used for variable parts, e.g.:
-
-.. code-block:: python
-
-    api.trackings.get('russian-post', '65600077151512')
-
-Positional arguments passed as keys are useful if they are stored in variables and followed by constant value, e.g.:
-
-.. code-block:: python
-
-    api.trackings['russian-post']['65600077151512'].retrack.post()
-
-Named arguments
----------------
-
-Named arguments passed as keyword arguments of HTTP Methods calls.
-Comma-separated values strings could be passed as [lists], timestamp strings could be passed as regular datetime objects, e.g.:
-
-.. code-block:: python
-
-    import datetime
-    ...
-    api.trackings.get(created_at_min=datetime.datetime(2014, 9, 1), fields=['title', 'order_id'])
-
-HTTP Method arguments
----------------------
-
-The following HTTP methods are supported:
-
-#. get()
-#. post()
-#. put()
-#. delete()
-
-Each method return either JSON of 'data' field or throws an aftership.APIv4RequestException.
-aftership-python relies on Requests library and ones should expect `Requests exceptions <http://docs.python-requests.org/en/latest/user/quickstart/#errors-and-exceptions>`_.
-
-APIv4RequestException
----------------------
-
-An exception is throwed on errors. The following methods are provided to get error details:
-
-#. code()
-#. type()
-#. message()
-
-Each functions returns appropriate value from 'meta' field. Check `errors documentation <https://www.aftership.com/docs/api/4/errors>`_ for more details.
-Code example:
-
-.. code-block:: python
-
-    try:
-        api = aftership.APIv4('FAKE_API_KEY')
-        api.couriers.get()
-    except aftership.APIv4RequestException as error:
-        # FAKE_API_KEY will result in Unauthorized (401) error
-        print 'Error:', error.code(), error.type(), error.message()
+Goto `examples <examples>`_ to see more examples.
