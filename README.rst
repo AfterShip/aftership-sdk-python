@@ -9,8 +9,10 @@ IMPORTANT NOTE
 --------------
 
 Current version of aftership-sdk-python `>=0.3` not **compatible** with
-previous version of sdk `<=0.2`. Also, current version is **not** support 
-Python 2.X anymore.
+previous version of sdk `<=0.2`.
+
+Also, version since 1.0 is **not** support Python 2.X anymore. If you want
+to use this SDK under Python 2.X, please use versions `<1.0`.
 
 
 Supported Python Versions

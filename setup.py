@@ -18,7 +18,7 @@ with open(os.path.join(here, 'VERSION'), encoding='utf-8') as f:
 setup(
     name='aftership',
 
-    python_requires='>3.5.0',
+    python_requires='>=3.5.0',
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
@@ -47,7 +47,7 @@ setup(
         #   3 - Alpha
         #   4 - Beta
         #   5 - Production/Stable
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 3 - Production',
 
         # Indicate who your project is intended for
         'Intended Audience :: Developers',

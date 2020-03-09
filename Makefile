@@ -1,4 +1,4 @@
-.PHONY: docs clean
+.PHONY: docs clean build
 
 install:
 	pip install --upgrade .
@@ -18,7 +18,7 @@ docs:
 	@echo "\033[95m\n\nBuild successful! View the docs homepage at docs/_build/html/index.html.\n\033[0m"
 
 build:
-	python setup.py sdist --formats=gztar,zip
+	python setup.py sdist --formats=gztar
 	python setup.py sdist bdist_wheel
 
 clean:
