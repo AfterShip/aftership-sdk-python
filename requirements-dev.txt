@@ -1,0 +1,9 @@
+# For packaging
+wheel
+setuptools
+
+# For testing
+flake8
+pytest
+pytest-cov
+pytest-vcr
