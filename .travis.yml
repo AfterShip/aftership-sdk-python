@@ -1,5 +1,6 @@
 language: python
-install: "make"
+os: linux
+dist: focal
 
 python:
   - "3.5"
@@ -8,8 +9,35 @@ python:
   - "3.8"
   - "pypy3"
 
-install:
-  - make install
+before_install: pip install poetry
+install: make install
+script: make test
+after_success: poetry run coveralls
 
-script:
-  - make test
+stages:
+  - lint
+  - test
+  - publish
+
+jobs:
+  fast_finish: true
+  allow_failures:
+    - python: pypy3
+
+  include:
+    - stage: lint
+      python: 3.8
+      script:
+        - make lint
+    - stage: publish
+      script: skip
+      before_deploy:
+        - poetry config http-basic.pypi $PYPI_USERNAME $PYPI_PASSWORD
+        - poetry build
+      deploy:
+        provider: script
+        script: poetry publish
+        skip_cleanup: true
+        on:
+          tags: true
+      if: tag IS present

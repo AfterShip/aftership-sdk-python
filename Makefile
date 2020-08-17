@@ -1,25 +1,23 @@
 .PHONY: docs clean build
 
 install:
-	pip install --upgrade .
-	pip install -r requirements-dev.txt
+	poetry install
 
 test:
-	cd tests && py.test
+	poetry run py.test --cov=aftership
 
 record:
-	cd tests && py.test --vcr-record=new_episodes
+	poetry run py.test --vcr-record=new_episodes
 
-flake8:
-	flake8
+lint:
+	poetry run flake8 aftership
 
 docs:
 	cd docs && make html
 	@echo "\033[95m\n\nBuild successful! View the docs homepage at docs/_build/html/index.html.\n\033[0m"
 
 build:
-	python setup.py sdist --formats=gztar
-	python setup.py sdist bdist_wheel
+	poetry build
 
 clean:
 	-rm -r docs/_build
