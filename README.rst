@@ -2,6 +2,13 @@
 aftership-sdk-python
 ====================
 
+.. image:: https://travis-ci.com/AfterShip/aftership-sdk-python.svg?branch=master
+    :target: https://travis-ci.com/AfterShip/aftership-sdk-python
+
+.. image:: https://coveralls.io/repos/github/AfterShip/aftership-sdk-python/badge.svg?branch=master
+    :target: https://coveralls.io/github/AfterShip/aftership-sdk-python?branch=master
+
+
 aftership-sdk-python is Python SDK (module) for `AfterShip API <https://www.aftership.com/docs/api/4>`_.
 Module provides clean way to access API endpoints.
 
