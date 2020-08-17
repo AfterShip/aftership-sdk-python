@@ -41,3 +41,7 @@ jobs:
         on:
           tags: true
       if: tag IS present
+
+cache:
+  directories:
+    - $HOME/.cache/pypoetry
