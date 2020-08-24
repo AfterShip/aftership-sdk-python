@@ -17,11 +17,15 @@ def update_tracking(tracking_id, **values):
     return True
 
 
-def get_tracking(tracking_id, fields=None):
-    """Get tracking
+def get_tracking(*, tracking_id=None, slug=None, tracking_number=None,
+                 fields=None):
+    """Get tracking by tracking_id or slug + tracking_number
     """
     try:
-        result = aftership.tracking.get_tracking(tracking_id=tracking_id, fields=','.join(fields))
+        result = aftership.tracking.get_tracking(tracking_id=tracking_id,
+                                                 slug=slug,
+                                                 tracking_number=tracking_number,
+                                                 fields=','.join(fields))
     except aftership.exception.NotFound:
         return None
 
@@ -37,8 +41,19 @@ def delete_tracking(tracking_id):
 
 
 if __name__ == '__main__':
-    tid = create_tracking('usps', 'HA19260817')
-    update_tracking(tid, title='new title')
-    tracking = get_tracking(tid, fields=['title', 'checkpoints'])
-    is_deleted = delete_tracking(tid)
-    print(tracking)
+    _tracking_id = create_tracking('usps', 'TEST12345678')
+    print(f'tracking_id: {_tracking_id}')
+
+    update_tracking(_tracking_id, title='new title')
+
+    # Get tracking by tracking_id
+    _tracking = get_tracking(tracking_id=_tracking_id, fields=['title', 'checkpoints'])
+    print('Get tracking by tracking_id:', _tracking)
+
+    # Get tracking by slug and tracking_number
+    _tracking = get_tracking(slug='usps', tracking_number='HA19260817',
+                             fields=['title', 'checkpoints'])
+    print('Get tracking by slug and tracking_number:', _tracking)
+
+    is_deleted = delete_tracking(_tracking_id)
+    print('Delete tracking result:', is_deleted)
