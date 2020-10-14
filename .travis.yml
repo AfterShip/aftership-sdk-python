@@ -7,6 +7,7 @@ python:
   - "3.6"
   - "3.7"
   - "3.8"
+  - "3.9"
   - "pypy3"
 
 before_install: pip install poetry
@@ -26,7 +27,7 @@ jobs:
 
   include:
     - stage: lint
-      python: 3.8
+      python: 3.9
       script:
         - make lint
     - stage: publish
