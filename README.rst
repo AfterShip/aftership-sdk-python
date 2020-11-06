@@ -114,4 +114,4 @@ Most of SDK functions only accept keyword arguments.
 Examples
 ========
 
-Goto `examples <examples>`_ to see more examples.
+Go to `examples <examples>`_ to see more examples.
