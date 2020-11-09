@@ -2,7 +2,10 @@ from urllib.parse import urljoin
 
 import requests
 
-from .const import API_KEY_FILED_NAME, API_ENDPOINT
+from .constants import (
+    API_KEY_FILED_NAME,
+    API_ENDPOINT,
+)
 from .util import get_api_key
 
 

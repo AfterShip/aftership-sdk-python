@@ -1,5 +1,12 @@
-from .exception import BadRequest, Forbidden, NotFound, Unauthorized, TooManyRequests, InternalError, UnexpectedError
-
+from .exception import (
+    BadRequest,
+    Unauthorized,
+    Forbidden,
+    NotFound,
+    TooManyRequests,
+    InternalError,
+    UnexpectedError,
+)
 error_mapping = {
     'BadRequest': BadRequest,
     'Unauthorized': Unauthorized,
