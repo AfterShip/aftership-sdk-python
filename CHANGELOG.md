@@ -5,7 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 
 ## [1.2.0] - 2021-03-26
-- Add tracking support addtional fields.
+### Changed
+- Add tracking support additional fields.
+
 
 ## [1.1.0] - 2020-08-17
 A dummy version, NO CHANGES.
@@ -31,6 +33,7 @@ A dummy version, NO CHANGES.
 ### Removed
 - Python 2.X support.
 
+[1.2.0]: https://github.com/AfterShip/aftership-sdk-python/releases/tag/1.2.0
 [1.1.0]: https://github.com/AfterShip/aftership-sdk-python/releases/tag/1.1.0
 [1.0.post2]: https://github.com/AfterShip/aftership-sdk-python/releases/tag/1.0.post2
 [1.0.post1]: https://github.com/AfterShip/aftership-sdk-python/releases/tag/1.0.post1
