@@ -1,0 +1,94 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.25.1
+      aftership-api-key:
+      - YOUR_API_KEY_IS_HERE
+    method: GET
+    uri: https://api.aftership.com/v4/trackings/wuuxyb7ohjx55kmpt5r7y017
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA+1X227bOBD9FUGvdRLKiuxabwG2WCy2CIrab4tCoKWxxZVEcnmp4wb+9x1a1MWx
+        m7Qoig2KfZOGM8OZM4fS4WPYgKFh+hjmooAwnRJymIQFbW1G0bxifOueWRGm4c7ah/16Lsq/H5Kk
+        aqRJ1HxPonk4CXMF1ECRUYN+UzKNrkh8NZ2tyG0aT1OSvCEkJQQdrSyec5z1jjXVJvtm767WjNtm
+        DQq94+Wfd3e/J4tFEi8W6KFri52EUmjD66tYo4nmhn3Gto2ygG+8UML1+dcn7MdqI5psw6AudJhy
+        W9edEVTGaQOdsYAak6h9ZpgzJs6iDePUMMGzXFhucJFpEePu75YfHFjCKoZpXnSEhrJatxXBg4Tc
+        YdFt2BXAhPfgwvRVCVXgBq6b0/dMUlOeGh3Cg4Vt2Vkx9+9/cwCWTDbADabIK7qF1quLHFZZXlnp
+        sw4zm66it2kcp8n8DYnamfUhPYTjUvpVs5fnxh2wbYmbR9fR7MycWc4cYaqt24VtOaK27vHSjQaP
+        mMZB5K5MKpkjEXUM+YOvFOUaM6CDXT8xZoTc9gtZA1ojFOhwpxT2UATUBKOxBh5Jl5yZGi7w8shc
+        LNCjGXnmN6yGrGe1tlIKhdPvyFpTvrXHndumsON/LAaICjhuUoBUkLuj4+hWQl5JwbhxbT9eOgk5
+        Mz0+Lxzl0QkV+bHJPtCzZnw6BoCWfkZBR+RJsLYmQNIGezABHfD7gIXdvw+HhC0N24TdODbiI+Tg
+        Qk7HNNhxUtGlSTmfYBQ8wOOP8NA0WUVJOl2k04G0ucBT46bbc8iMSPuFye5R0V12LMq9Hib/w/79
+        sCezVwk7fg8nwT2YEhQew0KHT2fgP5gXhqB8/8F6/zW8ffA3fou+AnUwhL2EM3YZv056/zI4X/j3
+        /SI4l1QHawAe6Pbv9J+DPEvJ7esE+d1yEiwlZfwc3lbsPUdj1iuJQGzGAuMc8TbZT5Uyz0whWUUk
+        TRbY/Y9O4dOxMp0rtkakx6JtsI71sQJjFUcFlGnghbsCbGitoVO5UomG6ZF8PhGbg4gfiU2vZJ/+
+        b715rLY7Qd/rtZrxCmEpjZHpzc1ut7tuqXTN65vPiIcpLdM3CM6GKRR71BjA65Rn1GlOBQVDHhif
+        0/+Ou41ofhxLf+15snyq58+WL1xABgZ1ThWcB7puaJ21t8bwdraYn1zCnB4/wXdYGWZ/OBz+Bet+
+        EHmADgAA
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,aftership-api-key,aftership-agent,request-id
+      Access-Control-Allow-Methods:
+      - GET,OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 635da88b58ed21a6-HKG
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, proxy-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 26 Mar 2021 04:33:01 GMT
+      Expect-CT:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Expires:
+      - '0'
+      Pragma:
+      - no-cache
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cfduid=dfd10e88724e9d675d90bf9ddfc1289841616733180; expires=Sun, 25-Apr-21
+        04:33:00 GMT; path=/; domain=.aftership.com; HttpOnly; SameSite=Lax
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      Surrogate-Control:
+      - no-store
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-RateLimit-Limit:
+      - '10'
+      X-RateLimit-Remaining:
+      - '9'
+      X-RateLimit-Reset:
+      - '1616733182'
+      X-Response-Time:
+      - 81.675ms
+      cf-request-id:
+      - 090e67ab19000021a659b34000000001
+      p3p:
+      - 'CP="AfterShip does not have a P3P policy. Learn why here: https://www.aftership.com/p3p"'
+    status:
+      code: 200
+      message: OK
+version: 1
