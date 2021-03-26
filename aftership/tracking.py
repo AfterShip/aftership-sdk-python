@@ -10,10 +10,13 @@ def create_tracking(tracking, **kwargs):
     return process_response(response)
 
 
-def get_tracking(*, tracking_id=None, slug=None, tracking_number=None, **kwargs):
+def get_tracking(*, tracking_id=None, slug=None, tracking_number=None,
+                 **kwargs):
     """Create a tracking.
     """
-    optional_keys = ('fields', 'lang')
+    optional_keys = ('tracking_postal_code', 'tracking_ship_date', 'tracking_account_number', 'tracking_key',
+                     'tracking_origin_country', 'tracking_destination_country', 'tracking_state',
+                     'fields', 'lang')
     params = {key: kwargs.pop(key) for key in optional_keys if key in kwargs}
     url = 'trackings/{}'.format(_build_tracking_url(tracking_id, slug, tracking_number))
     response = make_request('GET', url, params=params, **kwargs)

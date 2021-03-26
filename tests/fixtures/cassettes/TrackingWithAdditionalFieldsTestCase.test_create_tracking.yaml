@@ -1,0 +1,93 @@
+interactions:
+- request:
+    body: '{"tracking": {"slug": "postnl-3s", "tracking_number": "3SKAAG5995399",
+      "tracking_destination_country": "ESP", "tracking_postal_code": "46970"}}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '143'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.25.1
+      aftership-api-key:
+      - YOUR_API_KEY_IS_HERE
+    method: POST
+    uri: https://api.aftership.com/v4/trackings
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA41UwW7bMAz9F1/XNkrSNIhvPQw77FKguw2DoMhszFmWNIlqGhT591Fx7MRNgPZm
+        PdIk39MT34sWSBXle6FdBUU5E9P9TVGpDqOgdIN2k7+xKspim9Lbbr109d+3xaJpPS3Cciemy+Km
+        0AEUQSUVcd5MzKa3Yn47e/gl7sv5rBSLb0KUQnBi8tXXEo2KJL+c3c8qbWrXEDh7/vzz8fHHYrVa
+        zFcrzogmMZPCu0jW3M4jQ0oTvjJtCgn4ZKvgMs/ff5hPiuRa+YJgqliUNhnTgxCkVS30YAWGi4Sd
+        JMygyEgktIrQWaldssRBjG4+lHEpIFf5LA9ahSZ288CbB52V6Nv1SeiOGdbRMJMLFdfPXMZn6RXV
+        YzDre0Jwg9dniTX6FixxBd2oDXRJl1HUTfKjokNsEOpqlHb+EtwCburLLh0sk8VTDDeW1VkPusQ2
+        wlGZyHprLl4oj9kqKvvgCWyVvc3htB5BUojpAMsWYmS+oz8IycAVix1MyFMctRFHE7doQA4Gjcl7
+        F/gq+0mNspt0aNGdmda/xD+4Biw3qcAH0PkV5GdWg268Q0s9t7SOOuCau54zPqHnJgpAKViuLCNz
+        ya/kRZkIvRV8cC3GM4+Nburk87ObOt63cfpg4w/wuSV70w86GLQN06uJfDmZbLfbu+5p3lkzeXWs
+        UJ0wTpjzCwYWUREBb5zjLhjXDFAha0THml1waKT04T6GzfAhPDb9RfjKI+Wpvz8/nS+dBi5/zGyU
+        kd1iLe4fVsvRnspmHul7itCA7vf7/xt4+56jBQAA
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,aftership-api-key,aftership-agent,request-id
+      Access-Control-Allow-Methods:
+      - GET,OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 635da729cd0ad18f-HKG
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, proxy-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 26 Mar 2021 04:32:05 GMT
+      Expect-CT:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Expires:
+      - '0'
+      Pragma:
+      - no-cache
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cfduid=d9f376ca82fb83154c7631b2c2731cf871616733124; expires=Sun, 25-Apr-21
+        04:32:04 GMT; path=/; domain=.aftership.com; HttpOnly; SameSite=Lax
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      Surrogate-Control:
+      - no-store
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - X-HTTP-Method-Override, Accept-Encoding
+      X-RateLimit-Limit:
+      - '10'
+      X-RateLimit-Remaining:
+      - '9'
+      X-RateLimit-Reset:
+      - '1616733126'
+      X-Response-Time:
+      - 216.710ms
+      cf-request-id:
+      - 090e66ce1a0000d18f901db000000001
+      p3p:
+      - 'CP="AfterShip does not have a P3P policy. Learn why here: https://www.aftership.com/p3p"'
+    status:
+      code: 201
+      message: Created
+version: 1
