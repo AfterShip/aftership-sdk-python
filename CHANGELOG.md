@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
+
+## [1.3.0] - 2021-04-13
+### Changed
+- Remove Python 3.5 support
+
+
 ## [1.2.1] - 2021-03-26
 ### Changed
 - Update package setup.py
@@ -37,6 +43,7 @@ A dummy version, NO CHANGES.
 ### Removed
 - Python 2.X support.
 
+[1.3.0]: https://github.com/AfterShip/aftership-sdk-python/releases/tag/1.3.0
 [1.2.1]: https://github.com/AfterShip/aftership-sdk-python/releases/tag/1.2.1
 [1.2.0]: https://github.com/AfterShip/aftership-sdk-python/releases/tag/1.2.0
 [1.1.0]: https://github.com/AfterShip/aftership-sdk-python/releases/tag/1.1.0

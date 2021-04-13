@@ -3,11 +3,10 @@ os: linux
 dist: focal
 
 python:
-  - "3.5"
-  - "3.6"
-  - "3.7"
-  - "3.8"
   - "3.9"
+  - "3.8"
+  - "3.7"
+  - "3.6"
   - "pypy3"
 
 before_install: pip install poetry
@@ -22,12 +21,9 @@ stages:
 
 jobs:
   fast_finish: true
-  allow_failures:
-    - python: pypy3
 
   include:
     - stage: lint
-      python: 3.8
       script:
         - make lint
     - stage: publish

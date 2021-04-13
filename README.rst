@@ -12,20 +12,9 @@ aftership-sdk-python
 aftership-sdk-python is Python SDK (module) for `AfterShip API <https://www.aftership.com/docs/api/4>`_.
 Module provides clean way to access API endpoints.
 
-IMPORTANT NOTE
---------------
-
-Current version of aftership-sdk-python `>=0.3` not **compatible** with
-previous version of sdk `<=0.2`.
-
-Also, version since 1.0 is **not** support Python 2.X anymore. If you want
-to use this SDK under Python 2.X, please use versions `<1.0`.
-
-
 Supported Python Versions
 =========================
 
-- 3.5
 - 3.6
 - 3.7
 - 3.8
@@ -35,34 +24,40 @@ Supported Python Versions
 Installation
 ------------
 
-Via pip
-=======
-
-Use Virtual Environment
+Virtual Environment
 =======================
-We recommend using a `virtualenv <https://docs.python.org/3/library/venv.html>`_ or `poem <https://python-poetry.org/>`_
+We recommend using a `virtualenv <https://docs.python.org/3/library/venv.html>`_ or `poetry <https://python-poetry.org/>`_
 to use this SDK.
+    
+Using Poetry
+============
+
+.. code-block:: bash
+
+    $ poetry add aftership
+
+Using pip
+=========
 
 .. code-block:: bash
 
     $ pip install aftership
 
-Via source code
-===============
+Via source code (tarbar)
+========================
 
-Download the code archive, without unzip it, go to the
-source root directory, then run:
+Download the code archive without unzip it and run:
 
 .. code-block:: bash
 
-    $ pip install aftership-sdk-python.zip
+    $ pip install <Download Path>/aftership-sdk-python.zip
 
 Usage
 -----
 
-You need a valid API key to use this SDK. If you don't have one, please visit https://www.aftership.com/apps/api.
+You need a valid API key to use this SDK. If you don't have one, please visit https://www.aftership.com/apps/api .
 
-Quick Start
+Quick Start 
 ===========
 
 The following code gets list of supported couriers
@@ -88,9 +83,9 @@ The functions of the SDK will return `data` field value if the API endpoints
 return response with HTTP status :code:`2XX`, otherwise will throw an
 exception.
 
+
 Exceptions
 ==========
-
 
 Exceptions are mapped from https://docs.aftership.com/api/4/errors,
 and this table is the exception attributes mapping.
