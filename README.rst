@@ -2,8 +2,8 @@
 aftership-sdk-python
 ====================
 
-.. image:: https://travis-ci.com/AfterShip/aftership-sdk-python.svg?branch=master
-    :target: https://travis-ci.com/AfterShip/aftership-sdk-python
+.. image:: https://github.com/AfterShip/aftership-sdk-python/actions/workflows/test.yml?query=branch%3Amaster
+    :target: https://github.com/AfterShip/aftership-sdk-python/actions/workflows/test.yml?query=branch%3Amaster
 
 .. image:: https://coveralls.io/repos/github/AfterShip/aftership-sdk-python/badge.svg?branch=master
     :target: https://coveralls.io/github/AfterShip/aftership-sdk-python?branch=master
