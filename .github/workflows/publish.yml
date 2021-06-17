@@ -1,0 +1,39 @@
+name: Package Release
+
+on:
+  push:
+    tags:
+    - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python # Set Python version
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip poetry
+          poetry config virtualenvs.in-project --unset
+          make install
+      - name: Lint
+        run: |
+          make lint
+      - name: Test
+        run: |
+          make test
+      - name: Build
+        run: |
+          make build
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ github.ref.replace("refs/tags/", "") }}
+          path: dist
+      - name: Publish release to PyPI
+        run: |
+          pip install twine
+          twine upload -u ${{ secrets.PYPI_USERNAME }} -p ${{ secrets.PYPI_PASSWORD }} --verbose dist/*
