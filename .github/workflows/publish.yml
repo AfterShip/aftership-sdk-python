@@ -28,10 +28,13 @@ jobs:
       - name: Build
         run: |
           make build
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ github.ref.replace("refs/tags/", "") }}
+          name: ${{ steps.get_version.outputs.VERSION }}
           path: dist
       - name: Publish release to PyPI
         run: |
