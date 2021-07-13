@@ -1,0 +1,73 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.25.1
+      aftership-api-key:
+      - YOUR_API_KEY_IS_HERE
+    method: GET
+    uri: https://api.aftership.com/v4/trackings/postnl-3s/3SKAAG5995399?tracking_postal_code=46970&tracking_destination_country=ESP
+  response:
+    body:
+      string:
+        Interal Error
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,aftership-api-key,aftership-agent,request-id
+      Access-Control-Allow-Methods:
+      - GET,OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 66e02f79fd00197f-HKG
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, proxy-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - text/plain; charset=utf-8
+      Date:
+      - Tue, 13 Jul 2021 05:42:00 GMT
+      Expect-CT:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Expires:
+      - '0'
+      Pragma:
+      - no-cache
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      Surrogate-Control:
+      - no-store
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 google
+      X-RateLimit-Limit:
+      - '10'
+      X-RateLimit-Remaining:
+      - '9'
+      X-RateLimit-Reset:
+      - '1626154921'
+      X-Response-Time:
+      - 120.323ms
+      p3p:
+      - 'CP="AfterShip does not have a P3P policy. Learn why here: https://www.aftership.com/p3p"'
+    status:
+      code: 502
+      message: InternalError
+version: 1

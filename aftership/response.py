@@ -1,3 +1,5 @@
+import json
+
 from .exception import BadRequest, Forbidden, NotFound, Unauthorized, TooManyRequests, InternalError, UnexpectedError
 
 error_mapping = {
@@ -11,7 +13,10 @@ error_mapping = {
 
 
 def process_response(response):
-    json_content = response.json()
+    try:
+        json_content = response.json()
+    except json.JSONDecodeError:
+        raise InternalError
 
     if response.status_code // 100 == 2:
         return json_content['data']
