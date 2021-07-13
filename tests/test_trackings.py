@@ -1,8 +1,9 @@
-from unittest import TestCase
+from unittest import TestCase, mock
 
 import pytest
 
 import aftership
+from requests import Response
 
 
 class TrackingTestCase(TestCase):
@@ -78,3 +79,11 @@ class TrackingWithAdditionalFieldsTestCase(TestCase):
     @pytest.mark.vcr()
     def test_get_last_checkpoint(self):
         response = aftership.tracking.get_last_checkpoint(tracking_id=self.tracking_id)
+
+    @pytest.mark.vcr()
+    def test_get_tracking_with_internal_error(self):
+        with self.assertRaises(aftership.exception.InternalError):
+            response = aftership.tracking.get_tracking(slug=self.slug,
+                                                       tracking_number=self.tracking_number,
+                                                       tracking_destination_country=self.destination_country,
+                                                       tracking_postal_code=self.postal_code)
