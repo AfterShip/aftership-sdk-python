@@ -25,11 +25,11 @@ to use this SDK under Python 2.X, please use versions `<1.0`.
 Supported Python Versions
 =========================
 
-- 3.5
 - 3.6
 - 3.7
 - 3.8
 - 3.9
+- 3.10
 - pypy3
 
 Installation
