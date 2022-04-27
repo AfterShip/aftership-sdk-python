@@ -58,9 +58,26 @@ def delete_tracking(*, tracking_id=None, slug=None, tracking_number=None, **kwar
 def list_trackings(**kwargs):
     """Get tracking results of multiple trackings.
     """
-    optional_keys = ('page', 'limit', 'keyword', 'slug', 'delivery_time', 'origin',
-                     'destination', 'tag', 'created_at_min', 'created_at_max',
-                     'fields', 'lang')
+    optional_keys = (
+        'page',
+        'limit',
+        'keyword',
+        'tracking_numbers',
+        'slug',
+        'delivery_time',
+        'origin',
+        'destination',
+        'tag',
+        'created_at_min',
+        'created_at_max',
+        'updated_at_min',
+        'updated_at_max',
+        'fields',
+        'lang',
+        'last_updated_at',
+        'return_to_sender',
+        'courier_destination_country_iso3',
+    )
 
     params = {key: kwargs.pop(key) for key in optional_keys if key in kwargs}
 
