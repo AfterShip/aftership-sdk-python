@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aftership"
-version = "1.3.0"
+version = "1.4.0"
 description = "The python SDK of AfterShip API"
 authors = ["AfterShip <support@aftership.com>"]
 license = "MIT"
