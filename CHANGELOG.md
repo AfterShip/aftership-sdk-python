@@ -4,11 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format bases on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
-## Unreleased
+## [1.4.0] - 2022-05-24
 
 ### Added
 
-- Python 3.10 support.
+- feat: add more fields for `Get trackings` API (#33)
 
 ## [1.3.0] - 2021-07-13
 
