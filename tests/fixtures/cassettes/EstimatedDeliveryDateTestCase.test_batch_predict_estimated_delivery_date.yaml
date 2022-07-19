@@ -1,0 +1,68 @@
+interactions:
+- request:
+    body: '{"estimated_delivery_dates": [{"slug":"fedex","service_type_name":"FEDEX HOME DELIVERY","origin_address":{"country":"USA","state":"WA","postal_code":"98108","raw_location":"Seattle, Washington, 98108, USA, United States"},"destination_address":{"country":"USA","state":"CA","postal_code":"92019","raw_location":"El Cajon, California, 92019, USA, United States"},"weight":{"unit":"kg","value":11},"package_count":1,"pickup_time":"2021-07-01 15:00:00","estimated_pickup":{"order_processing_time":{},"pickup_time":""}}]}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '47'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.23.0
+      aftership-api-key:
+      - YOUR_API_KEY_IS_HERE
+    method: POST
+    uri: https://api.aftership.com/v4/estimated-delivery-date/predict-batch
+  response:
+    body:
+      string: '{"meta":{"code":200},"data":{"estimated_delivery_dates":[{"slug":"fedex","service_type_name":"FEDEX HOME DELIVERY","origin_address":{"country":"USA","state":"WA","postal_code":"98108","raw_location":"Seattle, Washington, 98108, USA, United States","city":null},"destination_address":{"country":"USA","state":"CA","postal_code":"92019","raw_location":"El Cajon, California, 92019, USA, United States","city":null},"weight":{"unit":"kg","value":11},"package_count":1,"pickup_time":"2021-07-01 15:00:00","estimated_pickup":null,"estimated_delivery_date":"2021-07-05","estimated_delivery_date_min":"2021-07-04","estimated_delivery_date_max":"2021-07-05"}]}}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,aftership-api-key
+      Access-Control-Allow-Methods:
+      - GET,OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, proxy-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 25 Feb 2020 09:38:00 GMT
+      Expires:
+      - '0'
+      Pragma:
+      - no-cache
+      Server:
+      - nginx
+      Surrogate-Control:
+      - no-store
+      Vary:
+      - X-HTTP-Method-Override, Accept-Encoding
+      X-RateLimit-Limit:
+      - '10000'
+      X-RateLimit-Remaining:
+      - '9991'
+      X-RateLimit-Reset:
+      - '1582623526'
+      X-Response-Time:
+      - 37.438ms
+      p3p:
+      - 'CP="AfterShip does not have a P3P policy. Learn why here: https://www.aftership.com/p3p"'
+      transfer-encoding:
+      - chunked
+    status:
+      code: 200
+      message: OK
+version: 1
