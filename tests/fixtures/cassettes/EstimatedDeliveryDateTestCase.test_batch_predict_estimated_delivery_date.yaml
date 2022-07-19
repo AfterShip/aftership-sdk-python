@@ -3,20 +3,20 @@ interactions:
     body: '{"estimated_delivery_dates": [{"slug":"fedex","service_type_name":"FEDEX HOME DELIVERY","origin_address":{"country":"USA","state":"WA","postal_code":"98108","raw_location":"Seattle, Washington, 98108, USA, United States"},"destination_address":{"country":"USA","state":"CA","postal_code":"92019","raw_location":"El Cajon, California, 92019, USA, United States"},"weight":{"unit":"kg","value":11},"package_count":1,"pickup_time":"2021-07-01 15:00:00","estimated_pickup":{"order_processing_time":{},"pickup_time":""}}]}'
     headers:
       Accept:
-        - '*/*'
+      - '*/*'
       Accept-Encoding:
-        - gzip, deflate
+      - gzip, deflate
       Connection:
-        - keep-alive
+      - keep-alive
       Content-Length:
-        - '517'
+      - '517'
       Content-Type:
-        - application/json
+      - application/json
       User-Agent:
-        - python-requests/2.23.0
+      - python-requests/2.23.0
       aftership-api-key:
-        - YOUR_API_KEY_IS_HERE
-      method: POST
+      - YOUR_API_KEY_IS_HERE
+    method: POST
     uri: https://api.aftership.com/v4/estimated-delivery-date/predict-batch
   response:
     body:
