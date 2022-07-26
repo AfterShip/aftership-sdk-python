@@ -50,9 +50,3 @@ jobs:
       - name: Test
         run: |
           make test
-      - name: Coveralls
-        if: ${{ github.event_name == 'push' }}
-        env:
-          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-        run: |
-          make coveralls
