@@ -88,6 +88,31 @@ The functions of the SDK will return `data` field value if the API endpoints
 return response with HTTP status :code:`2XX`, otherwise will throw an
 exception.
 
+Authentication
+===========
+
+You can authenticate your request with AES algorithm
+
+.. code-block:: python
+
+    import aftership
+    aftership.api_key = 'YOUR_API_KEY_FROM_AFTERSHIP'
+    aftership.api_aes_secret_key = 'YOUR_API_SECRET_KEY_FROM_AFTERSHIP'
+    couriers = aftership.courier.list_couriers()
+
+You can also set API secret key via setting :code:`AFTERSHIP_API_AES_SECRET_KEY` environment varaible.
+
+.. code-block:: bash
+
+    export AFTERSHIP_API_KEY=THIS_IS_MY_API_KEY
+    export AFTERSHIP_API_AES_SECRET_KEY=THIS_IS_MY_SECRET_KEY
+
+.. code-block:: python
+
+    import aftership
+    tracking = aftership.get_tracking(tracking_id='your_tracking_id')
+
+
 Exceptions
 ==========
 

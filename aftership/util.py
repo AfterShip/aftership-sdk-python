@@ -23,3 +23,10 @@ def get_api_key():
     if aftership.api_key is not None:
         return aftership.api_key
     return os.getenv('AFTERSHIP_API_KEY')
+
+
+def get_api_secret_key():
+    """Get AfterShip API secret key"""
+    if aftership.api_aes_secret_key is not None:
+        return aftership.api_aes_secret_key
+    return os.getenv('AFTERSHIP_API_AES_SECRET_KEY')
