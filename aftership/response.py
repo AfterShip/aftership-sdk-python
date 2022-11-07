@@ -17,7 +17,7 @@ def process_response(response):
         json_content = response.json()
     except json.JSONDecodeError:
         raise InternalError
-
+        
     if response.status_code // 100 == 2:
         return json_content['data']
 
