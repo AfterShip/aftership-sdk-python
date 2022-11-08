@@ -1,7 +1,7 @@
 import aftership
 
-aftership.api_key = 'asak_61f861873c394225ecd4fc981b339458'
-aftership.api_secret = 'assk_e8b4b3c4441a478afd4726de1867e522'
+aftership.api_key = 'asak_61f86xxx'
+aftership.api_secret = 'assk_e8b4bxxx'
 
 
 def get_enabled_courier_names():
