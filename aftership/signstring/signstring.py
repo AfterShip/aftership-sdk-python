@@ -7,7 +7,7 @@ import time
 import json
 from urllib import parse
 from typing import Union,Text,Dict
-from aftership.const import API_KEY_FILED_NAME, API_ENDPOINT, AS_SIGNATURE_HMAC_SHA256, AS_SIGNATURE_RSA_SHA256, AS_API_KEY 
+# from aftership.const import API_KEY_FILED_NAME, API_ENDPOINT, AS_SIGNATURE_HMAC_SHA256, AS_SIGNATURE_RSA_SHA256, AS_API_KEY 
 
 BODY = Union[Text,Dict]
 
@@ -53,7 +53,6 @@ class SignString():
         query = urllib.parse.urlencode(sorted(dict(parse.parse_qsl(url_parse_result.query)).items()))
         if query:
             path = path + '?' + query
-
         return path
 
     def gen_sign_string(self, method: str, uri: str, body: str, as_header: dict, content_type: str) -> tuple:

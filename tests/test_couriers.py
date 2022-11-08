@@ -9,68 +9,40 @@ body='{"source_id":"1710452100BO","name":"1710452100BO","number":"1710452100BO",
 
 
 class CourierTestCase(TestCase):
-    # # @pytest.mark.vcr()
-    # # def test_get_couriers(self):
-    # #     resp = courier.list_couriers()
-    # #     self.assertIn('total', resp)
-    # #     self.assertIn('couriers', resp)
+    @pytest.mark.vcr()
+    def test_get_couriers(self):
+        resp = courier.list_couriers()
+        self.assertIn('total', resp)
+        self.assertIn('couriers', resp)
 
-    # # @pytest.mark.vcr()
-    # # def test_aes_get_couriers(self):
-    # #     resp = courier.list_couriers(signature_type=const.SIGNATURE_AES_HMAC_SHA256)
-    # #     self.assertIn('total', resp)
-    # #     self.assertIn('couriers', resp)
-    
-    # @pytest.mark.vcr()
-    # def test_rsa_get_couriers(self):
-    #     resp = courier.list_couriers(signature_type=const.SIGNATURE_RSA_HMAC_SHA256, 
-    #                                     rsa_private_key=const.RSA_PRIVATE_KEY)
-    #     self.assertIn('total', resp)
-    #     self.assertIn('couriers', resp)
+    @pytest.mark.vcr()
+    def test_aes_get_couriers(self):
+        resp = courier.list_couriers(signature_type=const.SIGNATURE_AES_HMAC_SHA256)
+        self.assertIn('total', resp)
+        self.assertIn('couriers', resp)
 
-    # # @pytest.mark.vcr()
-    # # def test_get_all_couriers(self):
-    # #     resp = courier.list_all_couriers()
-    # #     self.assertIn('total', resp)
-    # #     self.assertIn('couriers', resp)
 
-    # # @pytest.mark.vcr()
-    # # def test_aes_get_all_couriers(self):
-    # #     resp = courier.list_all_couriers(signature_type=const.SIGNATURE_AES_HMAC_SHA256)
-    # #     self.assertIn('total', resp)
-    # #     self.assertIn('couriers', resp)
+    @pytest.mark.vcr()
+    def test_get_all_couriers(self):
+        resp = courier.list_all_couriers()
+        self.assertIn('total', resp)
+        self.assertIn('couriers', resp)
 
-    
-    # @pytest.mark.vcr()
-    # def test_rsa_get_all_couriers(self):
-    #     resp = courier.list_all_couriers(signature_type=const.SIGNATURE_RSA_HMAC_SHA256, 
-    #                                         rsa_private_key=const.RSA_PRIVATE_KEY)
-    #     self.assertIn('total', resp)
-    #     self.assertIn('couriers', resp)
+    @pytest.mark.vcr()
+    def test_aes_get_all_couriers(self):
+        resp = courier.list_all_couriers(signature_type=const.SIGNATURE_AES_HMAC_SHA256)
+        self.assertIn('total', resp)
+        self.assertIn('couriers', resp)
 
-    # # @pytest.mark.vcr()
-    # # def test_detect_courier(self):
-    # #     resp = courier.detect_courier(tracking={"tracking_number": "1234567890"})
-    # #     self.assertIn('total', resp)
-    # #     self.assertIn('couriers', resp)
+    @pytest.mark.vcr()
+    def test_detect_courier(self):
+        resp = courier.detect_courier(tracking={"tracking_number": "1234567890"})
+        self.assertIn('total', resp)
+        self.assertIn('couriers', resp)
 
-    # # @pytest.mark.vcr()
-    # # def test_aes_detect_courier(self):
-    # #     resp = courier.detect_courier(signature_type=const.SIGNATURE_AES_HMAC_SHA256,
-    # #                                     tracking={"tracking_number": "1234567890"})
-    # #     self.assertIn('total', resp)
-    # #     self.assertIn('couriers', resp)
-
-    # @pytest.mark.vcr()
-    # def test_rsa_detect_courier(self):
-    #     resp = courier.detect_courier(signature_type=const.SIGNATURE_RSA_HMAC_SHA256,
-    #                                     tracking={"tracking_number": "1234567890"}, 
-    #                                     rsa_private_key=const.RSA_PRIVATE_KEY)
-    #     self.assertIn('total', resp)
-    #     self.assertIn('couriers', resp)
-
-    # @pytest.mark.vcr()
-    def test_aes_post_order(self):
-        resp = courier.post_orders(order=body, signature_type=const.SIGNATURE_AES_HMAC_SHA256)
+    @pytest.mark.vcr()
+    def test_aes_detect_courier(self):
+        resp = courier.detect_courier(signature_type=const.SIGNATURE_AES_HMAC_SHA256,
+                                        tracking={"tracking_number": "1234567890"})
         self.assertIn('total', resp)
         self.assertIn('couriers', resp)
