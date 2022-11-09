@@ -61,7 +61,7 @@ A dummy version, NO CHANGES.
 
 ### Changed
 
-- This package is not compatible with previous releases.
+- This package is not compatible with previous releases. 
 
 ### Removed
 
