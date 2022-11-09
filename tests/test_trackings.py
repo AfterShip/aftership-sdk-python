@@ -17,33 +17,32 @@ class TrackingTestCase(TestCase):
     def test_create_tracking(self):
         response = aftership.tracking.create_tracking(tracking={'slug': self.slug,
                                                                 'tracking_number': self.tracking_number})
+
     @pytest.mark.vcr()
     def test_aes_create_tracking(self):
         response = aftership.tracking.create_tracking(tracking={'slug': self.slug,
                                                                 'tracking_number': self.tracking_number},
-                                                                signature_type=const.SIGNATURE_AES_HMAC_SHA256)
-    
+                                                      signature_type=const.SIGNATURE_AES_HMAC_SHA256)
+
     @pytest.mark.vcr()
     def test_get_tracking(self):
         response = aftership.tracking.get_tracking(slug=self.slug,
                                                    tracking_number=self.tracking_number)
-    
+
     @pytest.mark.vcr()
     def test_aes_get_tracking(self):
         response = aftership.tracking.get_tracking(slug=self.slug,
                                                    tracking_number=self.tracking_number,
                                                    signature_type=const.SIGNATURE_AES_HMAC_SHA256)
 
-
     @pytest.mark.vcr()
     def test_delete_tracking(self):
-        response = aftership.tracking.delete_tracking(slug='china-ems',tracking_number='1234567890')
+        response = aftership.tracking.delete_tracking(slug='china-ems', tracking_number='1234567890')
 
     @pytest.mark.vcr()
     def test_aes_delete_tracking(self):
-        response = aftership.tracking.delete_tracking(slug='china-ems',tracking_number='1234567890', 
-                                                        signature_type=const.SIGNATURE_AES_HMAC_SHA256)
-                                                 
+        response = aftership.tracking.delete_tracking(slug='china-ems', tracking_number='1234567890',
+                                                      signature_type=const.SIGNATURE_AES_HMAC_SHA256)
 
     @pytest.mark.vcr()
     def test_list_trackings(self):
@@ -51,19 +50,19 @@ class TrackingTestCase(TestCase):
 
     @pytest.mark.vcr()
     def test_aes_list_trackings(self):
-        response = aftership.tracking.list_trackings(slug=self.slug, limit=1, signature_type=const.SIGNATURE_AES_HMAC_SHA256)
-    
+        response = aftership.tracking.list_trackings(
+            slug=self.slug, limit=1, signature_type=const.SIGNATURE_AES_HMAC_SHA256)
+
     @pytest.mark.vcr()
     def test_update_tracking(self):
         response = aftership.tracking.update_tracking(tracking_id=self.tracking_id,
                                                       tracking={'title': 'new title'})
-    
+
     @pytest.mark.vcr()
     def test_aes_update_tracking(self):
         response = aftership.tracking.update_tracking(tracking_id=self.tracking_id,
                                                       tracking={'title': 'new title'},
-                                                      signature_type=const.SIGNATURE_AES_HMAC_SHA256)                                                 
-
+                                                      signature_type=const.SIGNATURE_AES_HMAC_SHA256)
 
     @pytest.mark.vcr()
     def test_retrack(self):
@@ -71,16 +70,18 @@ class TrackingTestCase(TestCase):
 
     @pytest.mark.vcr()
     def test_aes_retrack(self):
-        response = aftership.tracking.retrack(tracking_id=self.tracking_id, signature_type=const.SIGNATURE_AES_HMAC_SHA256)
-    
+        response = aftership.tracking.retrack(tracking_id=self.tracking_id,
+                                              signature_type=const.SIGNATURE_AES_HMAC_SHA256)
+
     @pytest.mark.vcr()
     def test_get_last_checkpoint(self):
         response = aftership.tracking.get_last_checkpoint(tracking_id=self.tracking_id)
 
     @pytest.mark.vcr()
     def test_aes_get_last_checkpoint(self):
-        response = aftership.tracking.get_last_checkpoint(tracking_id=self.tracking_id, signature_type=const.SIGNATURE_AES_HMAC_SHA256)
-    
+        response = aftership.tracking.get_last_checkpoint(
+            tracking_id=self.tracking_id, signature_type=const.SIGNATURE_AES_HMAC_SHA256)
+
 
 class TrackingWithAdditionalFieldsTestCase(TestCase):
     def setUp(self):
@@ -97,46 +98,48 @@ class TrackingWithAdditionalFieldsTestCase(TestCase):
                                                                 'tracking_destination_country': self.destination_country,
                                                                 'tracking_postal_code': self.postal_code,
                                                                 })
+
     def test_aes_create_tracking(self):
         response = aftership.tracking.create_tracking(tracking={'slug': self.slug,
                                                                 'tracking_number': self.tracking_number,
                                                                 'tracking_destination_country': self.destination_country,
                                                                 'tracking_postal_code': self.postal_code,
                                                                 },
-                                                                signature_type=const.SIGNATURE_AES_HMAC_SHA256)
+                                                      signature_type=const.SIGNATURE_AES_HMAC_SHA256)
 
     @pytest.mark.vcr()
     def test_get_tracking(self):
         response = aftership.tracking.get_tracking(slug=self.slug,
-                                                    tracking_number=self.tracking_number,
-                                                    tracking_destination_country=self.destination_country,
-                                                    tracking_postal_code=self.postal_code)
+                                                   tracking_number=self.tracking_number,
+                                                   tracking_destination_country=self.destination_country,
+                                                   tracking_postal_code=self.postal_code)
+
     @pytest.mark.vcr()
     def test_aes_get_tracking(self):
         response = aftership.tracking.get_tracking(slug=self.slug,
-                                                    tracking_number=self.tracking_number,
-                                                    tracking_destination_country=self.destination_country,
-                                                    tracking_postal_code=self.postal_code,
-                                                    signature_type=const.SIGNATURE_AES_HMAC_SHA256)
+                                                   tracking_number=self.tracking_number,
+                                                   tracking_destination_country=self.destination_country,
+                                                   tracking_postal_code=self.postal_code,
+                                                   signature_type=const.SIGNATURE_AES_HMAC_SHA256)
 
     @pytest.mark.vcr()
     def test_get_tracking_by_id(self):
         response = aftership.tracking.get_tracking(tracking_id=self.tracking_id)
-    
+
     @pytest.mark.vcr()
     def test_aes_get_tracking_by_id(self):
         response = aftership.tracking.get_tracking(tracking_id=self.tracking_id,
-                                                    signature_type=const.SIGNATURE_AES_HMAC_SHA256)
-    
+                                                   signature_type=const.SIGNATURE_AES_HMAC_SHA256)
+
     @pytest.mark.vcr()
     def test_update_tracking(self):
         response = aftership.tracking.update_tracking(tracking_id=self.tracking_id,
-                                                        tracking={'title': 'new title'})
+                                                      tracking={'title': 'new title'})
 
     def test_aes_update_tracking(self):
         response = aftership.tracking.update_tracking(tracking_id=self.tracking_id,
-                                                        tracking={'title': 'new title'},
-                                                        signature_type=const.SIGNATURE_AES_HMAC_SHA256)
+                                                      tracking={'title': 'new title'},
+                                                      signature_type=const.SIGNATURE_AES_HMAC_SHA256)
 
     @pytest.mark.vcr()
     def test_get_last_checkpoint(self):
@@ -145,9 +148,8 @@ class TrackingWithAdditionalFieldsTestCase(TestCase):
     @pytest.mark.vcr()
     def test_get_last_checkpoint(self):
         response = aftership.tracking.get_last_checkpoint(tracking_id=self.tracking_id,
-                                                            signature_type=const.SIGNATURE_AES_HMAC_SHA256)
-    
-    
+                                                          signature_type=const.SIGNATURE_AES_HMAC_SHA256)
+
     @pytest.mark.vcr()
     def test_get_tracking_with_internal_error(self):
         with self.assertRaises(aftership.exception.InternalError):
@@ -155,11 +157,12 @@ class TrackingWithAdditionalFieldsTestCase(TestCase):
                                                        tracking_number=self.tracking_number,
                                                        tracking_destination_country=self.destination_country,
                                                        tracking_postal_code=self.postal_code)
+
     @pytest.mark.vcr()
     def test_aes_get_tracking_with_internal_error(self):
         with self.assertRaises(aftership.exception.InternalError):
             response = aftership.tracking.get_tracking(slug=self.slug,
-                                                        tracking_number=self.tracking_number,
-                                                        tracking_destination_country=self.destination_country,
-                                                        tracking_postal_code=self.postal_code,
-                                                        signature_type=const.SIGNATURE_AES_HMAC_SHA256)                                                
+                                                       tracking_number=self.tracking_number,
+                                                       tracking_destination_country=self.destination_country,
+                                                       tracking_postal_code=self.postal_code,
+                                                       signature_type=const.SIGNATURE_AES_HMAC_SHA256)

@@ -6,16 +6,17 @@ import urllib
 import time
 import json
 from urllib import parse
-from typing import Union,Text,Dict
+from typing import Union, Text, Dict
 
-BODY = Union[Text,Dict]
+BODY = Union[Text, Dict]
+
 
 class SignString():
-    def __init__(self, api_secret:str):
+    def __init__(self, api_secret: str):
         self.api_secret = api_secret
-    
-    def _gen_sign_string(self, method: str, body:BODY, content_type: str, date: str, canonicalized_as_headers: str,
-                    canonicalized_resource: str) -> str:
+
+    def _gen_sign_string(self, method: str, body: BODY, content_type: str, date: str, canonicalized_as_headers: str,
+                         canonicalized_resource: str) -> str:
         result = ''
         result += method + '\n'
         if body:
@@ -45,7 +46,7 @@ class SignString():
 
         result = '\n'.join([k + ':' + v for k, v in new_header.items()])
         return result
-    
+
     def _get_canonicalized_resource(self, raw_url: str) -> str:
         url_parse_result = parse.urlsplit(raw_url)
         path = url_parse_result.path
@@ -63,7 +64,7 @@ class SignString():
 
         date = time.strftime('%a, %d %b %Y %H:%M:%S GMT', time.gmtime())
         sign_string = self._gen_sign_string(method=method, body=body, content_type=content_type, date=date,
-                                    canonicalized_as_headers=canonicalized_as_headers,
-                                    canonicalized_resource=canonicalized_resource)
+                                            canonicalized_as_headers=canonicalized_as_headers,
+                                            canonicalized_resource=canonicalized_resource)
 
         return date, sign_string
