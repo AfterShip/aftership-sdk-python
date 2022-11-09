@@ -6,7 +6,8 @@ from aftership.hmac.hmac import Hmac
 
 from aftership.signstring.signstring import SignString
 
-from .const import AFTERSHIP_API_KEY, API_ENDPOINT, AS_SIGNATURE_HMAC_SHA256, AS_API_KEY, CONTENT_TYPE, SIGNATURE_AES_HMAC_SHA256
+from .const import AFTERSHIP_API_KEY, API_ENDPOINT, AS_SIGNATURE_HMAC_SHA256
+from .const import AS_API_KEY, CONTENT_TYPE, SIGNATURE_AES_HMAC_SHA256
 from .util import get_api_key, get_api_secret
 
 
