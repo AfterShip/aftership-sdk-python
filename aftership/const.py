@@ -1,4 +1,4 @@
-API_KEY_FILED_NAME = 'aftership-api-key'
+AFTERSHIP_API_KEY = 'aftership-api-key'
 AS_API_KEY = 'as-api-key'
 AS_SIGNATURE_HMAC_SHA256 = 'as-signature-hmac-sha256'
 

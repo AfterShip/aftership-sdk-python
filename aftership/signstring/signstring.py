@@ -7,7 +7,6 @@ import time
 import json
 from urllib import parse
 from typing import Union,Text,Dict
-# from aftership.const import API_KEY_FILED_NAME, API_ENDPOINT, AS_SIGNATURE_HMAC_SHA256, AS_SIGNATURE_RSA_SHA256, AS_API_KEY 
 
 BODY = Union[Text,Dict]
 
@@ -63,7 +62,6 @@ class SignString():
         canonicalized_resource = self._get_canonicalized_resource(uri)
 
         date = time.strftime('%a, %d %b %Y %H:%M:%S GMT', time.gmtime())
-        # date = "Tue, 29 Jun 2021 07:55:55 GMT"
         sign_string = self._gen_sign_string(method=method, body=body, content_type=content_type, date=date,
                                     canonicalized_as_headers=canonicalized_as_headers,
                                     canonicalized_resource=canonicalized_resource)

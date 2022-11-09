@@ -6,7 +6,7 @@ from aftership.hmac.hmac import Hmac
 
 from aftership.signstring.signstring import SignString
 
-from .const import API_KEY_FILED_NAME, API_ENDPOINT, API_VERSION, AS_SIGNATURE_HMAC_SHA256, AS_API_KEY, CONTENT_TYPE, SIGNATURE_AES_HMAC_SHA256 
+from .const import AFTERSHIP_API_KEY, API_ENDPOINT, API_VERSION, AS_SIGNATURE_HMAC_SHA256, AS_API_KEY, CONTENT_TYPE, SIGNATURE_AES_HMAC_SHA256 
 from .util import get_api_key, get_api_secret
 
 
@@ -48,10 +48,8 @@ def make_request(method, path, **kwargs):
 
 def request_with_token(method, url, **kwargs):
     headers = kwargs.pop('headers', dict())
-    if headers.get(API_KEY_FILED_NAME) is None:
-        headers[API_KEY_FILED_NAME] = get_api_key()
-    elif headers.get(AS_API_KEY) is None:
-        headers[AS_API_KEY] = get_api_key()
+    if headers.get(AFTERSHIP_API_KEY) is None and headers.get(AS_API_KEY) is None:
+        headers[AFTERSHIP_API_KEY] = get_api_key()
     
     kwargs['headers'] = headers
     return requests.request(method, url, **kwargs)
