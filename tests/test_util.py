@@ -1,7 +1,7 @@
 from unittest import TestCase
 
 import aftership
-from aftership.util import get_api_key
+from aftership.util import get_api_key, get_api_secret
 
 
 class UtilsTestCase(TestCase):
@@ -10,3 +10,9 @@ class UtilsTestCase(TestCase):
         aftership.api_key = api_key
         self.assertEqual(aftership.api_key, api_key)
         self.assertEqual(aftership.api_key, get_api_key())
+
+    def test_get_secret(self):
+        api_secret = '12345678'
+        aftership.api_secret = api_secret
+        self.assertEqual(aftership.api_secret, api_secret)
+        self.assertEqual(aftership.api_secret, get_api_secret())
