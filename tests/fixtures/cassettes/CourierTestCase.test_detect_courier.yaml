@@ -5,7 +5,7 @@ interactions:
       Accept:
       - '*/*'
       Accept-Encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       Connection:
       - keep-alive
       Content-Length:
@@ -13,7 +13,7 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - python-requests/2.23.0
+      - python-requests/2.26.0
       aftership-api-key:
       - YOUR_API_KEY_IS_HERE
     method: POST
@@ -21,217 +21,66 @@ interactions:
   response:
     body:
       string: !!binary |
-        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
+        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
+        DAM=
     headers:
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
-      - Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,aftership-api-key
+      - Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,aftership-api-key,aftership-agent,request-id
       Access-Control-Allow-Methods:
       - GET,OPTIONS
       Access-Control-Allow-Origin:
       - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 767dac874b7504e3-HKG
       Cache-Control:
       - no-store, no-cache, must-revalidate, proxy-revalidate
       Connection:
       - keep-alive
       Content-Encoding:
-      - gzip
+      - br
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 25 Feb 2020 09:38:00 GMT
+      - Thu, 10 Nov 2022 09:13:45 GMT
       Expires:
       - '0'
       Pragma:
       - no-cache
       Server:
-      - nginx
+      - cloudflare
+      Server-Timing:
+      - cf-q-config;dur=7.0000005507609e-06
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
       Surrogate-Control:
       - no-store
+      Transfer-Encoding:
+      - chunked
       Vary:
       - X-HTTP-Method-Override, Accept-Encoding
+      - Origin
+      Via:
+      - 1.1 google
       X-RateLimit-Limit:
-      - '10000'
+      - '10'
       X-RateLimit-Remaining:
-      - '9991'
+      - '9'
       X-RateLimit-Reset:
-      - '1582623526'
+      - '1668071625'
       X-Response-Time:
-      - 37.438ms
+      - 111.473ms
       p3p:
       - 'CP="AfterShip does not have a P3P policy. Learn why here: https://www.aftership.com/p3p"'
-      transfer-encoding:
-      - chunked
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"tracking": {"tracking_number": "1234567890"}}'
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '47'
-      Content-Type:
-      - application/json
-      User-Agent:
-      - python-requests/2.23.0
-      aftership-api-key:
-      - YOUR_API_KEY_IS_HERE
-    method: POST
-    uri: https://api.aftership.com/v4/couriers/detect
-  response:
-    body:
-      string: !!binary |
-        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
-    headers:
-      Access-Control-Allow-Credentials:
-      - 'true'
-      Access-Control-Allow-Headers:
-      - Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,aftership-api-key
-      Access-Control-Allow-Methods:
-      - GET,OPTIONS
-      Access-Control-Allow-Origin:
-      - '*'
-      Cache-Control:
-      - no-store, no-cache, must-revalidate, proxy-revalidate
-      Connection:
-      - keep-alive
-      Content-Encoding:
-      - gzip
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Tue, 25 Feb 2020 09:40:35 GMT
-      Expires:
-      - '0'
-      Pragma:
-      - no-cache
-      Server:
-      - nginx
-      Surrogate-Control:
-      - no-store
-      Vary:
+      vary:
       - X-HTTP-Method-Override, Accept-Encoding
-      X-RateLimit-Limit:
-      - '10000'
-      X-RateLimit-Remaining:
-      - '9997'
-      X-RateLimit-Reset:
-      - '1582623688'
-      X-Response-Time:
-      - 38.063ms
-      p3p:
-      - 'CP="AfterShip does not have a P3P policy. Learn why here: https://www.aftership.com/p3p"'
-      transfer-encoding:
-      - chunked
+      - Origin
     status:
       code: 200
       message: OK

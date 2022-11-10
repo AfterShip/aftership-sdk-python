@@ -5,19 +5,30 @@ interactions:
       Accept:
       - '*/*'
       Accept-Encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.25.1
+      - python-requests/2.26.0
       aftership-api-key:
       - YOUR_API_KEY_IS_HERE
     method: GET
     uri: https://api.aftership.com/v4/trackings/postnl-3s/3SKAAG5995399?tracking_postal_code=46970&tracking_destination_country=ESP
   response:
     body:
-      string:
-        Interal Error
+      string: !!binary |
+        YwCQNABAfF9Vm/a/HhVTdpq4XS9bw6NFWMKZRRHBpP//+81EpjVCKDzuBU8uTbzxRSNqVS1rXOIs
+        xMWFTtvpC8VMyqsnvpLlBBWefkBi9XAPGEtguK21TwbB0yGbD4F7gAQ46Hi0c7+r0d7bFr1f7q+2
+        s7UHGCyt/L/MgbzCYWu3267vu97+sufubHCnl8+sddbCoC0hsHJYTvRVKQaUV0bbcfopcNj9/Pj8
+        +duzYTjbDQMMamwTHJZSNcduV2HgR5VrhtO1sYFZJNzvvwarb3tMB+EYKlxuMTJUeaXsE18KHOWa
+        1ztSadqtAeoWWs76d3lHUssODq9/foPBWNoqvNKF5JnDyUushSrl24VH5UAnKJhVSih/LnqCxf53
+        JQm0KbR4nRkVwUftQyYpT2mdZUmcleZWIrXjCDEp47EtCeMX0eL+9dC7hcHYPUg+jzFqWfjFMmUO
+        tMcmWlPlxw+spa0jw8EvAgP1Exy+cQ6SJxjUtifHydqeZabZfpixZqloZD1Ta6KNAz6mXpOTSSKT
+        lqL/gOKDOUJ1vtKyXDUmLUfOcDhgAGdGrxxgsEv/sL4GqN8LbV/HVfYcqNY0DkORmCsKeZu0UOUc
+        eIU7+FhZR3CrYuVVz5h/mrLTpaWROfs0RWwshlqC4iMWT0XJRzjMqkt1m83/0m5OLDR8kuMGslc7
+        n0Onqx95A/e7u9c/u9Pz4cLC4CBrVfKqnBZ3wZJr2cqb2KsgRSK19qqf9ISgAB6EFJt2oAiSdZaF
+        WkO84KEZc/fV30CyU/TKVVOCQDRLoBXKkL1KEVX12twQcHDuMMuIMeoYzLvGVh8MwmLn7CcuB4a+
+        CwPWOHLk3KVU9ZFaJmZICIOooWSoFI1rUUVzPT09GQM=
     headers:
       Access-Control-Allow-Credentials:
       - 'true'
@@ -30,44 +41,50 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 66e02f79fd00197f-HKG
+      - 767dace73ffe0502-HKG
       Cache-Control:
       - no-store, no-cache, must-revalidate, proxy-revalidate
       Connection:
       - keep-alive
+      Content-Encoding:
+      - br
       Content-Type:
-      - text/plain; charset=utf-8
+      - application/json; charset=utf-8
       Date:
-      - Tue, 13 Jul 2021 05:42:00 GMT
-      Expect-CT:
-      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      - Thu, 10 Nov 2022 09:14:00 GMT
       Expires:
       - '0'
       Pragma:
       - no-cache
       Server:
       - cloudflare
+      Server-Timing:
+      - cf-q-config;dur=8.999999408843e-06
       Strict-Transport-Security:
-      - max-age=15552000; includeSubDomains
+      - max-age=31536000; includeSubDomains
       Surrogate-Control:
       - no-store
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
+      - Origin
       Via:
       - 1.1 google
       X-RateLimit-Limit:
       - '10'
       X-RateLimit-Remaining:
-      - '9'
+      - '8'
       X-RateLimit-Reset:
-      - '1626154921'
+      - '1668071641'
       X-Response-Time:
-      - 120.323ms
+      - 83.252ms
       p3p:
       - 'CP="AfterShip does not have a P3P policy. Learn why here: https://www.aftership.com/p3p"'
+      vary:
+      - Accept-Encoding
+      - Origin
     status:
-      code: 502
-      message: InternalError
+      code: 200
+      message: OK
 version: 1

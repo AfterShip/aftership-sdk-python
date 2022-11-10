@@ -5,11 +5,11 @@ interactions:
       Accept:
       - '*/*'
       Accept-Encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.23.0
+      - python-requests/2.26.0
       aftership-api-key:
       - YOUR_API_KEY_IS_HERE
     method: GET
@@ -17,57 +17,72 @@ interactions:
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA41Uy27bMBD8F16bALRcO62+IMceeisKgibX8lYUyfKR2Aj8711alixZBpqbOTPa
-        5ewO/cE6SJLVH0w5DayuOD8/MS17LAWpWrRN+Y2a1cx3HNb7w/HPeq10+1JFSP7Eqw17YiqATKCF
-        TKSreMWfefVcbX/ydb3Z1pvVF85rzkmYvf6c0MiYxKfVw12Fzd0OAqlfX1ffqy3/tnohOppMNthX
-        f6SDVAnfyG0KGehkdXDF3q/fZCPH5DqxRzA6stpmYwYQgrCygwHUYKhIOImEUzAmtDKhs0K5bBPx
-        GN16rORyQCr0Px10Ek3srwRHD6rMYOg4iNBdFdal8QYuaKpf7MzPwst0uIHY4OPO8YC+A5tIr1rZ
-        QC9asqja7EVZzoIbJ/OQTSe/BN8Bm8OySw+LbPHGYWNpFrtxCrGLcJ1DpOkqKs6kxxIJWVb+A6wu
-        GSY672aQ4Hw1wqKDGMnv7IuEycB9lC5JoytcB8OvSe3QgBhTGLP3LtDWhmsaaZt8qd+fydPfTB+4
-        Fix10OADqBL18pYOoFrv0KbBWN5FFXBHXad2b+g0LwFSDpYqi0hGylPYSxNhiIIPrsM4idNsTbdU
-        T9Z0XbZx6pLYO3iavtG/VJfxjK/xjp4HcEE/eB4LTQtLzLuYpBH9f9kdV0I1s3pj0oiez+d/mFcR
-        hBMFAAA=
+        YwDIMgBAfF/LVfW/xYAnuV1UlLC73aXnjJWJNr6wZbj//3tHcWYBSK/7atMa1MnGtv6Y2Fw6F69J
+        nQATzxJdtmxppw87/3AEcMFPc+jdn0isHu4TcwkMt7L22yD4dujmKXCfkACHkt+nOPtyfs+HVfS+
+        fqRna+1/GMxW/i9zIK9wWNnV6naabif7y+7c9ug26xtrnbUwGDUwSzf9ib4rSYC9ItrH6TPh8PAw
+        HVc7e5j2MOhxLHDY1DcY+FnlheG0DTbIBp/7/ddg1bbddBaOocPlESNBlhtln3hV4Cgv3N5J5Si2
+        BsE20PTqce8kvaxVzaqMJtyIN4KTl9htSuS3yrNyoC5BoVEKlzsXtQsm+y9LEtraUPV6YUwJXrQK
+        WcTuxH6RmjgrjVFCPwaOVpmvoyrG0jhYzN8K+l4JlIeCZHM20chiRbwsmQOdYuPpqfP5gb2MNjMc
+        fBUYqF/g8Mg5SF5g0Mep2UvWTiQ9DfahSrVV0cjokoPPxCE4ugm8/iSRCZi4ZIC7kIHg/jsjy/Ng
+        0nLlDId3BLBk9soBBk/xD0s0gHMvjFOfm5w4kMskCgVF1LVBbpMW6pwDN7izj50BgzcSK+4go14q
+        EtDJH8UFp/8bER2JgklAPU7Qc1HyFQ4X1drd/T3t0btNfbubS4LBWVpX8qqcaubTaEtqvFteCWJA
+        0HeqX6KB2qAYID7SOx/w94tUuqOwcpuUyeWbf3V1ouiVu2qC3kjwJhmlyZUijrp6HaUFKHigl2FG
+        BI4ZDEOj8weHlCZ56VmYihI9X4Yry0bW0tVHui3Q0eVhpMSMRDVoJG3f398D
     headers:
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
-      - Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,aftership-api-key
+      - Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,aftership-api-key,aftership-agent,request-id
       Access-Control-Allow-Methods:
       - GET,OPTIONS
       Access-Control-Allow-Origin:
       - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 767dacc41f188b3f-HKG
       Cache-Control:
       - no-store, no-cache, must-revalidate, proxy-revalidate
       Connection:
       - keep-alive
       Content-Encoding:
-      - gzip
+      - br
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 26 Feb 2020 03:56:54 GMT
+      - Thu, 10 Nov 2022 09:13:54 GMT
       Expires:
       - '0'
       Pragma:
       - no-cache
       Server:
-      - nginx
+      - cloudflare
+      Server-Timing:
+      - cf-q-config;dur=6.0000002122251e-06
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
       Surrogate-Control:
       - no-store
+      Transfer-Encoding:
+      - chunked
       Vary:
       - Accept-Encoding
+      - Origin
+      Via:
+      - 1.1 google
       X-RateLimit-Limit:
-      - '10000'
+      - '10'
       X-RateLimit-Remaining:
-      - '9993'
+      - '9'
       X-RateLimit-Reset:
-      - '1582689439'
+      - '1668071635'
       X-Response-Time:
-      - 214.350ms
+      - 53.910ms
       p3p:
       - 'CP="AfterShip does not have a P3P policy. Learn why here: https://www.aftership.com/p3p"'
-      transfer-encoding:
-      - chunked
+      vary:
+      - Accept-Encoding
+      - Origin
     status:
       code: 200
       message: OK

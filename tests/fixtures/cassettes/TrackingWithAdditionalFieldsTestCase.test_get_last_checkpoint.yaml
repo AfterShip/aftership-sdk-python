@@ -5,72 +5,74 @@ interactions:
       Accept:
       - '*/*'
       Accept-Encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       Connection:
       - keep-alive
+      Date:
+      - Thu, 10 Nov 2022 09:13:58 GMT
       User-Agent:
-      - python-requests/2.25.1
-      aftership-api-key:
-      - YOUR_API_KEY_IS_HERE
+      - python-requests/2.26.0
+      as-api-key:
+      - YOUR_AS_API_KEY
+      as-signature-hmac-sha256:
+      - DW/1ISzwtl/acVo7j5fjsNgFczeALYT2i89WYhcFZLg=
     method: GET
     uri: https://api.aftership.com/v4/last_checkpoint/wuuxyb7ohjx55kmpt5r7y017
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA7WQu27CMBSGXyXyCkgnCQbFG0NVVV0qwVZVkbFd4pLYkX3ckqK8e22g9KKuXX9/
-        /i/nSDqFnLAjEVYqwgqAcUokP2taEkbeQjgM26VtXg6U7rseqVsOkC/JlKDjYq/Nrjah2yoX4XJ9
-        v1rd0qqiZVVFwrdhF+XeejTtrPTpE0/Kndk4brzGBIXtL7EGmF8f6k55z3exHVk5p1+VzDhmUnnU
-        hqO2JhM2GHRD/CEaJfa91QbTpj/ShVMclax5BEgBRT6DclYsNjBnZcFgMQFgAD+catRdCr/SdJMD
-        o1XkJpBfaI0DYSa0bexgrZOpmvKEPT4l4VSv1t6W0edm/ZD8L6LhJ/Oz+LV03ei+UwYzp4Q6bdbX
-        nZl9/j4/HQpj2mf+vx74XffnnHEcPwAGhsMqPQIAAA==
+        IVgBACAQbiv1y0MMppVgMpShi4/Ps/KMwQYcuBWYDrzAyLd2oqsxeTwMTfY9jo7ehyA6ZJT12b5e
+        FJGg/NEQ4n8dZd44l++UcCwMzSoDAw==
     headers:
+      Access-Control-Allow-Origin:
+      - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 635da879bd12247f-HKG
+      - 767dacdf8cf9096e-HKG
       Cache-Control:
       - no-store, no-cache, must-revalidate, proxy-revalidate
       Connection:
       - keep-alive
       Content-Encoding:
-      - gzip
-      Content-Length:
-      - '316'
+      - br
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 26 Mar 2021 04:32:58 GMT
-      Expect-CT:
-      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      - Thu, 10 Nov 2022 09:13:59 GMT
       Expires:
       - '0'
       Pragma:
       - no-cache
       Server:
       - cloudflare
-      Set-Cookie:
-      - __cfduid=d705b665db8b8650ce80f8cc52b8655711616733177; expires=Sun, 25-Apr-21
-        04:32:57 GMT; path=/; domain=.aftership.com; HttpOnly; SameSite=Lax
+      Server-Timing:
+      - cf-q-config;dur=6.0000002122251e-06
       Strict-Transport-Security:
-      - max-age=15552000; includeSubDomains
+      - max-age=31536000; includeSubDomains
       Surrogate-Control:
       - no-store
+      Transfer-Encoding:
+      - chunked
       Vary:
       - Accept-Encoding
-      - Accept-Encoding
+      - Origin
+      Via:
+      - 1.1 google
       X-RateLimit-Limit:
       - '10'
       X-RateLimit-Remaining:
       - '9'
       X-RateLimit-Reset:
-      - '1616733179'
+      - '1668071640'
       X-Response-Time:
-      - 116.402ms
-      cf-request-id:
-      - 090e67a0160000247ffea72000000001
+      - 50.192ms
       p3p:
       - 'CP="AfterShip does not have a P3P policy. Learn why here: https://www.aftership.com/p3p"'
+      vary:
+      - Accept-Encoding
+      - Origin
     status:
-      code: 200
-      message: OK
+      code: 404
+      message: Not Found
 version: 1

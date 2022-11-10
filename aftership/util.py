@@ -18,8 +18,22 @@ def _build_tracking_url(tracking_id, slug, tracking_number):
     return url
 
 
-def get_api_key():
+def get_aftership_api_key():
     """Get AfterShip API key"""
     if aftership.api_key is not None:
         return aftership.api_key
     return os.getenv('AFTERSHIP_API_KEY')
+
+
+def get_as_api_key():
+    """Get AS API key"""
+    if aftership.api_key is not None:
+        return aftership.api_key
+    return os.getenv('AS_API_KEY')
+
+
+def get_as_api_secret():
+    """Get AfterShip API secret"""
+    if aftership.api_secret is not None:
+        return aftership.api_secret
+    return os.getenv('AS_API_SECRET')

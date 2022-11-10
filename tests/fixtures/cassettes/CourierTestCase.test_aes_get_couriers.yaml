@@ -8,28 +8,27 @@ interactions:
       - gzip, deflate, br
       Connection:
       - keep-alive
+      Date:
+      - Thu, 10 Nov 2022 09:13:44 GMT
       User-Agent:
       - python-requests/2.26.0
-      aftership-api-key:
-      - YOUR_API_KEY_IS_HERE
+      as-api-key:
+      - YOUR_AS_API_KEY
+      as-signature-hmac-sha256:
+      - iJHV/6B1h3QcAaFSy5vGAoH6sdiIitry6BvXmgqQKuQ=
     method: GET
-    uri: https://api.aftership.com/v4/trackings?limit=1&slug=4px
+    uri: https://api.aftership.com/v4/couriers
   response:
     body:
       string: !!binary |
-        YwCQOwBAtplW1at1AjtTVFd+6pJGXuS13qQD4Xz+8/u5SehLcathJf77z908bcmsiSH6DPOGV5YQ
-        raaJTOqfRKmwULd6ycPNB9aXXxBZCdwLhuwZ3NKYryl4+v6NQiODs1MIEkU/8WaDer9x4cctVw8O
-        YAot9BEcrMsdprBStWPB/f47BQHonlEayXpOwsE3FljU+f/EHkkxSgIHS7NczsxuZle/zMHZldts
-        JsY4Ywh8dA9i7cyaSYGaYi++ETeCSz2EKaww4R7UjI2T5yrftUPuVbii4FFUurc+UFpeYcL4f7GB
-        +/0C8eAgp4cNA+XTI+2Xgag846cx5r96KmkDt25zcOuVJKgOeZlrtcwpIPE83L7VnwUHHx/2sNya
-        vd057xMaVK4MTmvnKVQJS3GszS6BjiNLEsCfKyaKfJvnIFeuD1TZLTRxoDKpzWpmpifuPRxJQpNp
-        Kt8LD8oeGwnElORjPmWVCytB2BbFfzcAC+kZsMET6S5kFLmntrOUyElx3i1C1GAcleHSC2O+srH0
-        tx30UQDSj6U0ORzCnkSK4TIm9ni0TbXFxofHW+51YHBARSArnX/j5CWNMIXWj1/X0RgLSuBMUDLV
-        QBUNHF1W8KXZGydug7cZJTAGJpdSiIrKBNF/05N8dkbNF07g4L8TuGYgZQ9T+HcDsOoKKOegH9tQ
-        5cgeVRYgUhRpykDjRKFxwPAG1s5vQSa7igHS3na4evIqFUiKSUQ9J+hbQdIFHJxVS3OLReKOm6/L
-        fT7kWC+d1qZIqhyLFjPkz7rKWxFscyOhKPSzSqONKBVQDEhw4b8waLazFGzTGqktZPL2lW6qnimQ
-        clNOQBLCWxAqmirFMGxK2ksLIDwDXHKQgwsaZs9T6cP1TpG8ahRdUVLjbXFh2t6Sm1LA1qWKr2VG
-        KZsFaFItWfr6+/VlAAM=
+        A1QCAMT/XEtlM09d23QJ4gqEWfqHS7PJAUlbIzpxMxCNOF3LdC8q6wJag/MsyvII2sYP9A9sr276
+        VMWrjwra0AoeLtsWr1GRTiHWyJuCIBzL2nIUabvua/s/FQiPI2+m3Yg6BfG1hiqnAwhMVavAUacV
+        QeDl6f4JHO2wqQkCezbrRZa1w5zQ34/CMARHo4fUyTqtCAI0BzNPOtWk2H2jdFqyiyCbgGNOmZx2
+        JQSGWrdKmOZ8PjemqlVG3lTgMG0f2R9RWSiIrx8OIt14Wib0rggrjdZAgGpw0LhhdUpBfIFq/HCQ
+        t3Fkv2sq+aT0d0s5Uo0L8YWXpwP8bDkWRjGVk0WWxULPYX6U696nXU4A/LgYTM/0qaBF6T6l4mTx
+        /+cGsK7xApe5rhszk1mu5wfMCq3IipnJ7CFD7Zh5rufCo3vz2PFKdrJoO1IKGGglut834JKyCJ9/
+        UarhqJVFqgm+kud4ejvxGEAxLJPH59dWhrSeA9JxfOa7np92fH59+rcGqKNaFsPSIA6gjZndVf32
+        gYZCBHwIyp6I9X5bvIlvr4/xs/3Zbg0D
     headers:
       Access-Control-Allow-Credentials:
       - 'true'
@@ -42,7 +41,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 767dacc67fe70ee8-HKG
+      - 767dac855e01b451-HKG
       Cache-Control:
       - no-store, no-cache, must-revalidate, proxy-revalidate
       Connection:
@@ -52,7 +51,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 10 Nov 2022 09:13:55 GMT
+      - Thu, 10 Nov 2022 09:13:44 GMT
       Expires:
       - '0'
       Pragma:
@@ -60,7 +59,7 @@ interactions:
       Server:
       - cloudflare
       Server-Timing:
-      - cf-q-config;dur=6.9999996412662e-06
+      - cf-q-config;dur=7.0000005507609e-06
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Surrogate-Control:
@@ -75,11 +74,11 @@ interactions:
       X-RateLimit-Limit:
       - '10'
       X-RateLimit-Remaining:
-      - '8'
+      - '7'
       X-RateLimit-Reset:
-      - '1668071636'
+      - '1668071624'
       X-Response-Time:
-      - 53.469ms
+      - 18.730ms
       p3p:
       - 'CP="AfterShip does not have a P3P policy. Learn why here: https://www.aftership.com/p3p"'
       vary:

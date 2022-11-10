@@ -8,12 +8,16 @@ interactions:
       - gzip, deflate, br
       Connection:
       - keep-alive
+      Date:
+      - Thu, 10 Nov 2022 09:13:51 GMT
       User-Agent:
       - python-requests/2.26.0
-      aftership-api-key:
-      - YOUR_API_KEY_IS_HERE
+      as-api-key:
+      - YOUR_AS_API_KEY
+      as-signature-hmac-sha256:
+      - XN8YOwA8Q/T3mgHw027A1BV5qjmPG/TdhGmhbE9mawY=
     method: GET
-    uri: https://api.aftership.com/v4/notifications/k5lh7dy7vvqeck71p5loe011
+    uri: https://api.aftership.com/v4/last_checkpoint/k5lh7dy7vvqeck71p5loe011
   response:
     body:
       string: !!binary |
@@ -25,7 +29,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 767daca7ce7d04d1-HKG
+      - 767dacb0dff804fa-HKG
       Cache-Control:
       - no-store, no-cache, must-revalidate, proxy-revalidate
       Connection:
@@ -35,7 +39,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 10 Nov 2022 09:13:50 GMT
+      - Thu, 10 Nov 2022 09:13:51 GMT
       Expires:
       - '0'
       Pragma:
@@ -43,7 +47,7 @@ interactions:
       Server:
       - cloudflare
       Server-Timing:
-      - cf-q-config;dur=7.0000005507609e-06
+      - cf-q-config;dur=6.0000002122251e-06
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Surrogate-Control:
@@ -58,11 +62,11 @@ interactions:
       X-RateLimit-Limit:
       - '10'
       X-RateLimit-Remaining:
-      - '9'
+      - '7'
       X-RateLimit-Reset:
       - '1668071631'
       X-Response-Time:
-      - 70.812ms
+      - 23.963ms
       p3p:
       - 'CP="AfterShip does not have a P3P policy. Learn why here: https://www.aftership.com/p3p"'
       vary:

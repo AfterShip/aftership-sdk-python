@@ -1,5 +1,6 @@
 from .request import make_request
 from .response import process_response
+import json
 
 __all__ = ['list_couriers', 'list_all_couriers', 'detect_courier']
 
@@ -23,4 +24,9 @@ def detect_courier(tracking, **kwargs):
     selected couriers or a list of couriers.
     """
     response = make_request('POST', 'couriers/detect', json=dict(tracking=tracking), **kwargs)
+    return process_response(response)
+
+
+def post_orders(order, **kwargs):
+    response = make_request('POST', 'commerce/v1/orders', json=dict(order=json.loads(order)), **kwargs)
     return process_response(response)

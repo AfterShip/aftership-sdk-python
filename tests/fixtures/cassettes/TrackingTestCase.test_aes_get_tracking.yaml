@@ -8,28 +8,30 @@ interactions:
       - gzip, deflate, br
       Connection:
       - keep-alive
+      Date:
+      - Thu, 10 Nov 2022 09:13:51 GMT
       User-Agent:
       - python-requests/2.26.0
-      aftership-api-key:
-      - YOUR_API_KEY_IS_HERE
+      as-api-key:
+      - YOUR_AS_API_KEY
+      as-signature-hmac-sha256:
+      - Jnqff9mpOVgDLMpJSvkyTaBEmR45Qn56f+9/gxxK2eg=
     method: GET
-    uri: https://api.aftership.com/v4/trackings?limit=1&slug=4px
+    uri: https://api.aftership.com/v4/trackings/4px/HH19260817
   response:
     body:
       string: !!binary |
-        YwCQOwBAtplW1at1AjtTVFd+6pJGXuS13qQD4Xz+8/u5SehLcathJf77z908bcmsiSH6DPOGV5YQ
-        raaJTOqfRKmwULd6ycPNB9aXXxBZCdwLhuwZ3NKYryl4+v6NQiODs1MIEkU/8WaDer9x4cctVw8O
-        YAot9BEcrMsdprBStWPB/f47BQHonlEayXpOwsE3FljU+f/EHkkxSgIHS7NczsxuZle/zMHZldts
-        JsY4Ywh8dA9i7cyaSYGaYi++ETeCSz2EKaww4R7UjI2T5yrftUPuVbii4FFUurc+UFpeYcL4f7GB
-        +/0C8eAgp4cNA+XTI+2Xgag846cx5r96KmkDt25zcOuVJKgOeZlrtcwpIPE83L7VnwUHHx/2sNya
-        vd057xMaVK4MTmvnKVQJS3GszS6BjiNLEsCfKyaKfJvnIFeuD1TZLTRxoDKpzWpmpifuPRxJQpNp
-        Kt8LD8oeGwnElORjPmWVCytB2BbFfzcAC+kZsMET6S5kFLmntrOUyElx3i1C1GAcleHSC2O+srH0
-        tx30UQDSj6U0ORzCnkSK4TIm9ni0TbXFxofHW+51YHBARSArnX/j5CWNMIXWj1/X0RgLSuBMUDLV
-        QBUNHF1W8KXZGydug7cZJTAGJpdSiIrKBNF/05N8dkbNF07g4L8TuGYgZQ9T+HcDsOoKKOegH9tQ
-        5cgeVRYgUhRpykDjRKFxwPAG1s5vQSa7igHS3na4evIqFUiKSUQ9J+hbQdIFHJxVS3OLReKOm6/L
-        fT7kWC+d1qZIqhyLFjPkz7rKWxFscyOhKPSzSqONKBVQDEhw4b8waLazFGzTGqktZPL2lW6qnimQ
-        clNOQBLCWxAqmirFMGxK2ksLIDwDXHKQgwsaZs9T6cP1TpG8ahRdUVLjbXFh2t6Sm1LA1qWKr2VG
-        KZsFaFItWfr6+/VlAAM=
+        YwDIMgBA/JqpX/WvNba5c6aoXP7UpR10rE47In1YlP3/3zsK48gCkP+6rzatQZ1sbOuPic2lc/Ga
+        1Akw8SzRTrZsaacPO/9wBHDBT3Po01ckVg93xVICw83WfhkE3w7dvAXuCglwqLtTvEir50sba/Rv
+        h4++W+10hMFs5f+KA3mFw2zn+X6a7u37L/vm7LOb3u6sddbCYNTALP9QzPNwou9KEmCvhPZx+k44
+        fH5OH/OrfZ/eYNDjWOHwXE8w8IvKgeG0DTbIhoD7/ddg1bbDtBWOocPlESNBmRtln3hT4CgHbmdS
+        OcqtQbBNNL160pmklydViyqjCTfijeHkJXabUvlUeVEO1CUoNEvh8uaidsFk/1VJQlsXql53jBnB
+        i9Yhq9id2ndSE2elMUrox8LRKct+VMVYGgeL/VtDz5VAeyhILmcbjSxWJMuaOdAmNr6eOp8/2Mto
+        C8PBV4GB+hUO3zgHySsM+tg0+8naiWSkwT50qa4qGhldBPgsHIJj+ABvMElkAiYuGeAuZCC4/83I
+        8n8wadlzhsM7AlizeOUAg6f4hyUawLkPxqYvTTYcyGUKhYYi+togj0kLdc6BG9zWx86AwRuJlXaQ
+        0S8VBejUj+qCM/+NiIlEwySgHifotSh5D4edau3u8ZH26sNzPT0sJcFgK60reVVONfMZtKU13i2v
+        DDEg6LvVr9FAbVAMEB/lnQ8E+04q3VE4uU3J5OrNH12dKXrlrpqgNwq8KUbpcqVIoq5eR2kBCh7o
+        ZVoQgWMGw9CY/MEhZUheZha2osTMl2PPsrG1dPWRbgtMdCKMtJhRqCaNpOPr68sAAw==
     headers:
       Access-Control-Allow-Credentials:
       - 'true'
@@ -42,7 +44,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 767dacc67fe70ee8-HKG
+      - 767dacb32a3b04ba-HKG
       Cache-Control:
       - no-store, no-cache, must-revalidate, proxy-revalidate
       Connection:
@@ -52,7 +54,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 10 Nov 2022 09:13:55 GMT
+      - Thu, 10 Nov 2022 09:13:52 GMT
       Expires:
       - '0'
       Pragma:
@@ -60,7 +62,7 @@ interactions:
       Server:
       - cloudflare
       Server-Timing:
-      - cf-q-config;dur=6.9999996412662e-06
+      - cf-q-config;dur=4.9999998736894e-06
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Surrogate-Control:
@@ -75,11 +77,11 @@ interactions:
       X-RateLimit-Limit:
       - '10'
       X-RateLimit-Remaining:
-      - '8'
+      - '9'
       X-RateLimit-Reset:
-      - '1668071636'
+      - '1668071632'
       X-Response-Time:
-      - 53.469ms
+      - 59.849ms
       p3p:
       - 'CP="AfterShip does not have a P3P policy. Learn why here: https://www.aftership.com/p3p"'
       vary:
