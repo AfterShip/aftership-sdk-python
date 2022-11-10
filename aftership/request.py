@@ -60,6 +60,8 @@ def request_with_aes_hmac256_signature(method, url, path, content_type, **kwargs
     headers = kwargs.pop('headers', dict())
     if headers.get(AS_API_KEY, None) is None:
         headers[AS_API_KEY] = get_as_api_key()
+    if headers.get(AS_API_KEY, None) is None:
+        return
 
     body = kwargs.get('json', None)
     date, sign_string = gen_sign_string(method, path, body, headers, content_type)

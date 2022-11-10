@@ -56,7 +56,7 @@ class SignString():
 
     def gen_sign_string(self, method: str, uri: str, body: str, as_header: dict, content_type: str) -> tuple:
         # if self.api_secret is None:
-        #     self.api_secret = os.getenv('AFTERSHIP_API_SECRET')
+        #     self.api_secret = os.getenv('AS_API_SECRET')
 
         canonicalized_as_headers = self._get_canonicalized_as_headers(as_header)
         canonicalized_resource = self._get_canonicalized_resource(uri)
