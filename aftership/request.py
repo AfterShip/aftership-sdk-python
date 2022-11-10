@@ -8,7 +8,7 @@ from aftership.signstring.signstring import SignString
 
 from .const import AFTERSHIP_API_KEY, API_ENDPOINT, AS_SIGNATURE_HMAC_SHA256
 from .const import AS_API_KEY, CONTENT_TYPE, SIGNATURE_AES_HMAC_SHA256
-from .util import get_api_key, get_api_secret
+from .util import get_aftership_api_key, get_as_api_key, get_as_api_secret
 
 
 def build_request_url(path):
@@ -50,7 +50,7 @@ def make_request(method, path, **kwargs):
 def request_with_token(method, url, **kwargs):
     headers = kwargs.pop('headers', dict())
     if headers.get(AFTERSHIP_API_KEY) is None and headers.get(AS_API_KEY) is None:
-        headers[AFTERSHIP_API_KEY] = get_api_key()
+        headers[AFTERSHIP_API_KEY] = get_aftership_api_key()
 
     kwargs['headers'] = headers
     return requests.request(method, url, **kwargs)
@@ -59,12 +59,12 @@ def request_with_token(method, url, **kwargs):
 def request_with_aes_hmac256_signature(method, url, path, content_type, **kwargs):
     headers = kwargs.pop('headers', dict())
     if headers.get(AS_API_KEY, None) is None:
-        headers[AS_API_KEY] = get_api_key()
+        headers[AS_API_KEY] = get_as_api_key()
 
     body = kwargs.get('json', None)
     date, sign_string = gen_sign_string(method, path, body, headers, content_type)
 
-    hmac = Hmac(get_api_secret())
+    hmac = Hmac(get_as_api_secret())
     hmac_signature = hmac.hmac_signature(sign_string)
     headers[AS_SIGNATURE_HMAC_SHA256] = hmac_signature
     headers['Date'] = date

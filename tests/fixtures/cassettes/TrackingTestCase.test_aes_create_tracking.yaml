@@ -1,6 +1,6 @@
 interactions:
 - request:
-    body: '{"tracking": {"title": "new title"}}'
+    body: '{"tracking": {"slug": "4px", "tracking_number": "HH19260817"}}'
     headers:
       Accept:
       - '*/*'
@@ -9,20 +9,22 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '36'
+      - '62'
       Content-Type:
       - application/json
+      Date:
+      - Thu, 10 Nov 2022 09:13:50 GMT
       User-Agent:
       - python-requests/2.26.0
-      aftership-api-key:
-      - YOUR_API_KEY_IS_HERE
-    method: PUT
-    uri: https://api.aftership.com/v4/trackings/k5lh7dy7vvqeck71p5loe011
+      as-api-key:
+      - YOUR_AS_API_KEY
+      as-signature-hmac-sha256:
+      - IKa1n5z+uRwKCPiRY8IPnT/NvHhWN+v4s5WTc2seHP4=
+    method: POST
+    uri: https://api.aftership.com/v4/trackings
   response:
     body:
-      string: !!binary |
-        IdgBACAQri1VuTzkw6eVYDKU8b8gqC8yEHnmlAOHtgJPOIYEAj7ywUMmdMUeCpvj5PIwdNJGd7SW
-        UoWiQ0fZX2uvF4XIQfnHihD/4yjbiOfyQQrd8ogHv444HeX2b5Ez0wAD
+      string: '{"meta":{"code":4003,"message":"Tracking already exists.","type":"BadRequest"},"data":{"tracking":{"slug":"4px","tracking_number":"HH19260817","id":"phxlzirpyzrugla7v9shg01w","created_at":"2022-11-08T07:04:17+00:00"}}}'
     headers:
       Access-Control-Allow-Credentials:
       - 'true'
@@ -35,17 +37,17 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 767daccb0ace2388-HKG
+      - 767dacac5f231969-HKG
       Cache-Control:
       - no-store, no-cache, must-revalidate, proxy-revalidate
       Connection:
       - keep-alive
-      Content-Encoding:
-      - br
+      Content-Length:
+      - '218'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 10 Nov 2022 09:13:55 GMT
+      - Thu, 10 Nov 2022 09:13:51 GMT
       Expires:
       - '0'
       Pragma:
@@ -53,15 +55,13 @@ interactions:
       Server:
       - cloudflare
       Server-Timing:
-      - cf-q-config;dur=4.9999998736894e-06
+      - cf-q-config;dur=1.5000000530563e-05
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Surrogate-Control:
       - no-store
-      Transfer-Encoding:
-      - chunked
       Vary:
-      - Accept-Encoding
+      - X-HTTP-Method-Override, Accept-Encoding
       - Origin
       Via:
       - 1.1 google
@@ -70,15 +70,15 @@ interactions:
       X-RateLimit-Remaining:
       - '9'
       X-RateLimit-Reset:
-      - '1668071636'
+      - '1668071631'
       X-Response-Time:
-      - 51.634ms
+      - 39.173ms
       p3p:
       - 'CP="AfterShip does not have a P3P policy. Learn why here: https://www.aftership.com/p3p"'
       vary:
-      - Accept-Encoding
+      - X-HTTP-Method-Override, Accept-Encoding
       - Origin
     status:
-      code: 404
-      message: Not Found
+      code: 400
+      message: Bad Request
 version: 1

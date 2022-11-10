@@ -1,18 +1,24 @@
 from unittest import TestCase
 
 import aftership
-from aftership.util import get_api_key, get_api_secret
+import pytest
+
+from aftership.util import get_aftership_api_key, get_as_api_secret
 
 
 class UtilsTestCase(TestCase):
+    @pytest.mark.vcr()
     def test_get_key(self):
         api_key = '12345678'
+        print("test_get_key==============", api_key)
         aftership.api_key = api_key
         self.assertEqual(aftership.api_key, api_key)
-        self.assertEqual(aftership.api_key, get_api_key())
+        self.assertEqual(aftership.api_key, get_aftership_api_key())
 
+    @pytest.mark.vcr()
     def test_get_secret(self):
         api_secret = '12345678'
+        print("api_secret==============", api_secret)
         aftership.api_secret = api_secret
         self.assertEqual(aftership.api_secret, api_secret)
-        self.assertEqual(aftership.api_secret, get_api_secret())
+        self.assertEqual(aftership.api_secret, get_as_api_secret())

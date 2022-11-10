@@ -5,7 +5,7 @@ interactions:
       Accept:
       - '*/*'
       Accept-Encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       Connection:
       - keep-alive
       Content-Length:
@@ -13,7 +13,7 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - python-requests/2.25.1
+      - python-requests/2.26.0
       aftership-api-key:
       - YOUR_API_KEY_IS_HERE
     method: PUT
@@ -21,23 +21,8 @@ interactions:
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA+1XbW/bNhD+K4S+1kkoy7JnfQvQoihWBMXsTysKgZbOFieJ1PhSxwv833e0qBfH
-        SdNhGBoU+yYdj8e75x6SDx+CGgwLkocgkzkEyZTS4yTIWWszimUlFzv3zfMgCfbW3h82C1n8cR/H
-        Zd2YWC0ONFwEkyBTwAzkKTPoN6XT8IpGV9P5ms6SaJrQ+A2lCaXoaJv8WccooVHvWDFt0u/27nJN
-        ha03oNA7Wv16e/s+Xi7jaLlED11ZrCRopDaiuoo0mlhm+Fcs2ygL+CdyJV2dn79gPVYbWadbDlWu
-        g0TYquqMoFLBauiMOVQYRB1Sw50xdhZtuGCGS5Fm0gqDg1zLCFd/t/rkwJJWcQzzoiPUjFe6zQju
-        G8gcFt2CXQJceg8hTZ+VVDku4Ko5/08bZopzo0N4sPAdv0jm7uNbB2DBmxqEwRBZyXbQenUzh1Ge
-        lbbxUYeeTdfhL65n8eINDdue9VN6CMep9KPm0Fwa98B3BS4eXofzC3NqBXeEKXduFb4TiNqmx0vX
-        GjxiGhuRuTRZwx2JmGPIB7FWTGiMgA5288iYUjrrB9IatEYo0OFWKawhJ8yQUVuJR9IF56ZyjgL2
-        pP32rMXkPJKhZ33NK0h7RmvbNFJh5zuiVkzs7GnVtiCs9k+LE2QJAhfIoVGQuW3jqFZAVjaSC+NK
-        fnhqF2Tc9Ni8sI3nw+6U2anAfqJnzHhnDOCsfH9IR+IJ2VhDkLDkAIawAbtPmNjdx2AI2FKwDdi1
-        Yit/gwzclPMWDXbsUvhUl5wPGU0e4PHbdyiarsNZMl0m08U1pfT3U0q4YVxje/qYEV//4k33qdg+
-        PeXkfo+T/1H/56jH89eIOp6EE3IHpgCFmzDXweMW+KPyiR4oXz7ZHJ6D20/+zlPoGaTJMO0lmLHK
-        6FWS+6eBGS+9RXvp/WQwF0yTDYAgur2ZfjjG84TOXiXG71YTsmoYF5fothrvWyTmvYAgcjvWFZeA
-        t8H+UwXzjSbEa4pn9hKr/5dN+HJKTGeKbxDosVQbrGNVrMBYJVD7pBpE7oT/llUaOm3bKFlzPRLN
-        ZxJzkO4jien16+Or1pvHGruT8b1Sq7goEZXCmCa5udnv99ctk65FdfMV8TCF5foGwdlyhTKPGQP4
-        iPKEOo+pIOdIA+Nj+pu4W4hlp670j51Hw+cq/mL4iWfHQKDOqYTLia4aVqXtWzGYzZeLs6eXU+Fn
-        +A4jQ++Px+PfCc2LVHYOAAA=
+        IdgBACAQri1VuTzkw6eVYDKU8b8gqC8yEHnmlAOHtgJPOIYEAj7ywUMmdMUeCpvj5PIwdNJGd7SW
+        UoWiQ0fZX2uvF4XIQfnHihD/4yjbiOfyQQrd8ogHv444HeX2b5Ez0wAD
     headers:
       Access-Control-Allow-Credentials:
       - 'true'
@@ -50,49 +35,50 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 635da8928975d19b-HKG
+      - 767dace9d8df04c4-HKG
       Cache-Control:
       - no-store, no-cache, must-revalidate, proxy-revalidate
       Connection:
       - keep-alive
       Content-Encoding:
-      - gzip
+      - br
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 26 Mar 2021 04:33:04 GMT
-      Expect-CT:
-      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      - Thu, 10 Nov 2022 09:14:00 GMT
       Expires:
       - '0'
       Pragma:
       - no-cache
       Server:
       - cloudflare
-      Set-Cookie:
-      - __cfduid=d0f5cc2c337e4fb83b09422d5ba225b6f1616733181; expires=Sun, 25-Apr-21
-        04:33:01 GMT; path=/; domain=.aftership.com; HttpOnly; SameSite=Lax
+      Server-Timing:
+      - cf-q-config;dur=4.9999998736894e-06
       Strict-Transport-Security:
-      - max-age=15552000; includeSubDomains
+      - max-age=31536000; includeSubDomains
       Surrogate-Control:
       - no-store
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
+      - Origin
+      Via:
+      - 1.1 google
       X-RateLimit-Limit:
       - '10'
       X-RateLimit-Remaining:
-      - '9'
+      - '7'
       X-RateLimit-Reset:
-      - '1616733184'
+      - '1668071640'
       X-Response-Time:
-      - 222.650ms
-      cf-request-id:
-      - 090e67afc70000d19b2ab50000000001
+      - 61.432ms
       p3p:
       - 'CP="AfterShip does not have a P3P policy. Learn why here: https://www.aftership.com/p3p"'
+      vary:
+      - Accept-Encoding
+      - Origin
     status:
-      code: 200
-      message: OK
+      code: 404
+      message: Not Found
 version: 1
