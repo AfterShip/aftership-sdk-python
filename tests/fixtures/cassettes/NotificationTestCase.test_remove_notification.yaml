@@ -5,7 +5,7 @@ interactions:
       Accept:
       - '*/*'
       Accept-Encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       Connection:
       - keep-alive
       Content-Length:
@@ -13,46 +13,66 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - python-requests/2.23.0
+      - python-requests/2.26.0
       aftership-api-key:
       - YOUR_API_KEY_IS_HERE
     method: POST
     uri: https://api.aftership.com/v4/notifications/k5lh7dy7vvqeck71p5loe011/remove
   response:
     body:
-      string: '{"meta":{"code":201},"data":{"notification":{"android":[],"emails":["jk.zhang@aftership.com"],"ios":[],"smses":[]}}}'
+      string: !!binary |
+        ISQCACAQbTP1yyIG06eFtLQ2Fh59mDBRNssQ3eDArVACyTIMeJBt5GFj7NxwnAqPk2pDkUlq2ZAY
+        QnQUHTrC8WqyXiQiBuUfHsf4uyHsbZjLC8uRNc8oFmRiVcvzISfXabEZ2M/fXbpPrXKttQwD
     headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 767dacaa5a9b096a-HKG
       Cache-Control:
       - no-store, no-cache, must-revalidate, proxy-revalidate
       Connection:
       - keep-alive
-      Content-Length:
-      - '116'
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 25 Feb 2020 09:40:42 GMT
+      - Thu, 10 Nov 2022 09:13:50 GMT
       Expires:
       - '0'
       Pragma:
       - no-cache
       Server:
-      - nginx
+      - cloudflare
+      Server-Timing:
+      - cf-q-config;dur=6.0000002122251e-06
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
       Surrogate-Control:
       - no-store
+      Transfer-Encoding:
+      - chunked
       Vary:
       - X-HTTP-Method-Override, Accept-Encoding
+      - Origin
+      Via:
+      - 1.1 google
       X-RateLimit-Limit:
-      - '10000'
+      - '10'
       X-RateLimit-Remaining:
-      - '9992'
+      - '8'
       X-RateLimit-Reset:
-      - '1582623688'
+      - '1668071631'
       X-Response-Time:
-      - 357.226ms
+      - 35.927ms
       p3p:
       - 'CP="AfterShip does not have a P3P policy. Learn why here: https://www.aftership.com/p3p"'
+      vary:
+      - X-HTTP-Method-Override, Accept-Encoding
+      - Origin
     status:
-      code: 201
-      message: Created
+      code: 404
+      message: Not Found
 version: 1

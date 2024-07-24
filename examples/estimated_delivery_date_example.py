@@ -47,6 +47,7 @@ def batch_predict_estimated_delivery_date():
     )
     return result['estimated_delivery_dates']
 
+
 if __name__ == '__main__':
     list = batch_predict_estimated_delivery_date()
     print(list)

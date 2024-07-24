@@ -1,4 +1,5 @@
 import aftership
+from aftership import const
 
 
 # aftership.api_key = 'PUT_YOUR_AFTERSHIP_KEY_HERE'
@@ -14,6 +15,11 @@ def create_tracking(slug, tracking_number):
 
 def update_tracking(tracking_id, **values):
     aftership.tracking.update_tracking(tracking_id=tracking_id, tracking=values)
+
+    # using HMAC-SHA256 signature
+    aftership.tracking.update_tracking(tracking_id=tracking_id, tracking=values,
+                                       signature_type=const.SIGNATURE_AES_HMAC_SHA256)
+
     return True
 
 

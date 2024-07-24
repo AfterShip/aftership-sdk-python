@@ -81,7 +81,7 @@ The following code gets list of supported couriers
     aftership.api_key = 'YOUR_API_KEY_FROM_AFTERSHIP'
     couriers = aftership.courier.list_couriers()
 
-You can also set API key via setting :code:`AFTERSHIP_API_KEY` environment varaible.
+You can also set API key via setting :code:`AFTERSHIP_API_KEY` environment variable.
 
 .. code-block:: bash
 

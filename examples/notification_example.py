@@ -17,10 +17,18 @@ def add_notification(tracking_id, emails=None, smses=None, webhook=None):
         raise ValueError('You must specify one of emails, smses or webhook')
 
     aftership.notification.add_notification(tracking_id=tracking_id, notification=update_params)
+    
+    ## using HMAC-SHA256 signature
+    aftership.notification.add_notification(tracking_id=tracking_id, notification=update_params, signature_type=const.SIGNATURE_AES_HMAC_SHA256)
+
+
 
 
 def list_notifications(tracking_id):
     notification = aftership.notification.list_notifications(tracking_id=tracking_id)
+    
+    ## using HMAC-SHA256 signature
+    notification = aftership.notification.list_notifications(tracking_id=tracking_id, signature_type=const.SIGNATURE_AES_HMAC_SHA256)
     return notification
 
 

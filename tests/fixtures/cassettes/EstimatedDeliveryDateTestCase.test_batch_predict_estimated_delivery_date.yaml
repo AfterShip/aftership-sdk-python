@@ -1,56 +1,92 @@
 interactions:
 - request:
-    body: '{"estimated_delivery_dates": [{"slug":"fedex","service_type_name":"FEDEX HOME DELIVERY","origin_address":{"country":"USA","state":"WA","postal_code":"98108","raw_location":"Seattle, Washington, 98108, USA, United States"},"destination_address":{"country":"USA","state":"CA","postal_code":"92019","raw_location":"El Cajon, California, 92019, USA, United States"},"weight":{"unit":"kg","value":11},"package_count":1,"pickup_time":"2021-07-01 15:00:00","estimated_pickup":{"order_processing_time":{},"pickup_time":""}}]}'
+    body: '{"estimated_delivery_dates": [{"slug": "fedex", "service_type_name": "FEDEX
+      HOME DELIVERY", "origin_address": {"country": "USA", "state": "WA", "postal_code":
+      "98108", "raw_location": "Seattle, Washington, 98108, USA, United States"},
+      "destination_address": {"country": "USA", "state": "CA", "postal_code": "92019",
+      "raw_location": "El Cajon, California, 92019, USA, United States"}, "weight":
+      {"unit": "kg", "value": 11}, "package_count": 1, "pickup_time": "2021-07-01
+      15:00:00", "estimated_pickup": {"order_processing_time": {}, "pickup_time":
+      ""}}]}'
     headers:
       Accept:
       - '*/*'
       Accept-Encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       Connection:
       - keep-alive
       Content-Length:
-      - '517'
+      - '552'
       Content-Type:
       - application/json
       User-Agent:
-      - python-requests/2.23.0
+      - python-requests/2.26.0
       aftership-api-key:
       - YOUR_API_KEY_IS_HERE
     method: POST
     uri: https://api.aftership.com/v4/estimated-delivery-date/predict-batch
   response:
     body:
-      string: '{"meta":{"code":200},"data":{"estimated_delivery_dates":[{"slug":"fedex","service_type_name":"FEDEX HOME DELIVERY","origin_address":{"country":"USA","state":"WA","postal_code":"98108","raw_location":"Seattle, Washington, 98108, USA, United States","city":null},"destination_address":{"country":"USA","state":"CA","postal_code":"92019","raw_location":"El Cajon, California, 92019, USA, United States","city":null},"weight":{"unit":"kg","value":11},"package_count":1,"pickup_time":"2021-07-01 15:00:00","estimated_pickup":null,"estimated_delivery_date":"2021-07-05","estimated_delivery_date_min":"2021-07-04","estimated_delivery_date_max":"2021-07-05"}]}}'
+      string: !!binary |
+        IWgMACBWNq3Xd6p3L8sp6XchRWoODbbARioxrCNTp3pYIxjSuUETH2NwKMIRnTZbLMFfgQoq1XXd
+        31+TlZ9Mx87YiTLsGXlwAjsdTgzqHMBg8TO05EJ9R6nf+9yiBmmgx+3/Hj0sVNLnjY/0tFG/YxVH
+        T2TrbyQd6Qmr0IckzudKDz+87NOHrXAjxDFuj1SEREyaPG8pJGrjOrET0kChTcTuhutcHMUt16SB
+        pC7Dkbz26fFG8oo2qrGxg8F+v+9zoZKajY/9POwGhbC2SZqB88bTc6zSk8p7y4caBnqMAotnIf33
+        zkmNzsAxI0TWaZkDgbJzDezvM5ptu4ZFIU4OMFB6i2Z6jJLVvAM+9vTJ0x/04v3bp/Tk6ZuX355+
+        +gkDtTkh0+VDmf9AW2s6wuLr54cwaJRVYPH9IQxiaJS3WXS+j9VyNFzCIPE+u8EBBIvPwqpbMRR1
+        xdD8KYa+fn5oSE9C+ax7GHcGOdHYHbjHCOPhaAXwdEuPuQy1oXRTDBnUGoXuH3dhz2hrr7Co1jD4
+        a60bdjTqDGqjmIytGdiRQfR51cZMPdu/HQ/Ho95w0RuOaDSzw6EdDmFiiFrosGcoIfSy04OhDJ47
+        WBO67m/XGQM=
     headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,aftership-api-key,aftership-agent,request-id
+      Access-Control-Allow-Methods:
+      - GET,OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 767dac94bb8e6e67-HKG
       Cache-Control:
       - no-store, no-cache, must-revalidate, proxy-revalidate
       Connection:
       - keep-alive
-      Content-Length:
-      - '653'
+      Content-Encoding:
+      - br
       Content-Type:
       - application/json; charset=utf-8
+      Date:
+      - Thu, 10 Nov 2022 09:13:48 GMT
       Expires:
       - '0'
       Pragma:
       - no-cache
       Server:
-      - nginx
+      - cloudflare
+      Server-Timing:
+      - cf-q-config;dur=7.0000005507609e-06
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
       Surrogate-Control:
       - no-store
+      Transfer-Encoding:
+      - chunked
       Vary:
       - X-HTTP-Method-Override, Accept-Encoding
-      X-RateLimit-Limit:
-      - '10000'
-      X-RateLimit-Remaining:
-      - '9994'
-      X-RateLimit-Reset:
-      - '1582623688'
+      - Origin
+      Via:
+      - 1.1 google
       X-Response-Time:
-      - 256.222ms
+      - 1002.996ms
       p3p:
       - 'CP="AfterShip does not have a P3P policy. Learn why here: https://www.aftership.com/p3p"'
+      vary:
+      - X-HTTP-Method-Override, Accept-Encoding
+      - Origin
     status:
-      code: 200
-      message: OK
+      code: 403
+      message: Forbidden
 version: 1
