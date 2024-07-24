@@ -1,4 +1,6 @@
-# Deprecation notice: New Version Available
+====================
+Deprecation notice: New Version Available
+====================
 
 This version of the SDK has been deprecated and replaced with the newly reconstructed SDK.
 
